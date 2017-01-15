@@ -1,0 +1,48 @@
+//- contact.jade
+    -The contact page
+    -Created by : Erenox the : 02/07/2016
+    -Last update : 14/01/2017
+
+doctype html
+
+html(lang='en')
+    //- include the head (metadata, css, js, title)
+    include ./partials/head
+
+    body(class='body_main')
+        //- include the header (top)
+        include ./partials/header
+
+        #contact
+
+            //- the contact header
+            img(src='/images/_contact.png', alt='Contact')
+            h1 Contact Me
+
+            //- the contact form
+            form(method='post', action='/contact/')
+
+                //- 'about' field (reason)
+                label *About:
+                select(name='input[about]', size='1', required)
+                    option(value=-1) --------
+                    option(value=1) prohibited audit
+                    option(value=2) report bug
+                    option(value=3) improvement
+                    option(value=4) other
+
+                //- 'from' field (who)
+                label From:
+                input(type='text', name='input[address]', maxlength='35', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');")
+
+                //- 'subject' field (why)
+                label *Subject:
+                input(type='text', name='input[subject]', required, maxlength='35', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');")
+
+                //- 'message' field (what)
+                textarea(name='input[body]', required, maxlength='8000', cols='50', rows='10', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');")
+                br
+                input(type='submit', name='sub', value='Send Message')
+
+        //- include the footer (bottom)
+        include ./partials/footer

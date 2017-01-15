@@ -1,0 +1,106 @@
+---------- Whois ---------- 
+
+Whois Server Version 2.0
+
+Domain names in the .com and .net domains can now be registered
+with many different competing registrars. Go to http://www.internic.net
+for detailed information.
+
+   Domain Name: SCANITY.NET
+   Registrar: ENOM, INC.
+   Sponsoring Registrar IANA ID: 48
+   Whois Server: whois.enom.com
+   Referral URL: http://www.enom.com
+   Name Server: DNS1.REGISTRAR-SERVERS.COM
+   Name Server: DNS2.REGISTRAR-SERVERS.COM
+   Status: ok https://icann.org/epp#ok
+   Updated Date: 19-nov-2016
+   Creation Date: 26-nov-2015
+   Expiration Date: 26-nov-2017
+
+>>> Last update of whois database: Sat, 14 Jan 2017 20:33:24 GMT <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+
+
+Domain Name: SCANITY.NET
+Registry Domain ID: 1984070620_DOMAIN_NET-VRSN
+Registrar WHOIS Server: whois.enom.com
+Registrar URL: www.enom.com
+Updated Date: 2016-11-16T22:32:15.00Z
+Creation Date: 2015-11-26T16:19:00.00Z
+Registrar Registration Expiration Date: 2017-11-26T16:19:00.00Z
+Registrar: ENOM, INC.
+Registrar IANA ID: 48
+Reseller: NAMECHEAP.COM
+Domain Status: ok https://www.icann.org/epp#ok
+Registry Registrant ID: 
+Registrant Name: WHOISGUARD PROTECTED
+Registrant Organization: WHOISGUARD, INC.
+Registrant Street: P.O. BOX 0823-03411
+Registrant City: PANAMA
+Registrant State/Province: PANAMA
+Registrant Postal Code: 0
+Registrant Country: PA
+Registrant Phone: +507.8365503
+Registrant Phone Ext: 
+Registrant Fax: +51.17057182
+Registrant Fax Ext:
+Registrant Email: 4C031A05334D40838972068902AC4D83.PROTECT@WHOISGUARD.COM
+Registry Admin ID: 
+Admin Name: WHOISGUARD PROTECTED
+Admin Organization: WHOISGUARD, INC.
+Admin Street: P.O. BOX 0823-03411
+Admin City: PANAMA
+Admin State/Province: PANAMA
+Admin Postal Code: 0
+Admin Country: PA
+Admin Phone: +507.8365503
+Admin Phone Ext: 
+Admin Fax: +51.17057182
+Admin Fax Ext:
+Admin Email: 4C031A05334D40838972068902AC4D83.PROTECT@WHOISGUARD.COM
+Registry Tech ID: 
+Tech Name: WHOISGUARD PROTECTED
+Tech Organization: WHOISGUARD, INC.
+Tech Street: P.O. BOX 0823-03411
+Tech City: PANAMA
+Tech State/Province: PANAMA
+Tech Postal Code: 0
+Tech Country: PA
+Tech Phone: +507.8365503
+Tech Phone Ext: 
+Tech Fax: +51.17057182
+Tech Fax Ext: 
+Tech Email: 4C031A05334D40838972068902AC4D83.PROTECT@WHOISGUARD.COM
+Name Server: DNS1.REGISTRAR-SERVERS.COM
+Name Server: DNS2.REGISTRAR-SERVERS.COM
+DNSSEC: unSigned
+Registrar Abuse Contact Email: abuse@enom.com
+Registrar Abuse Contact Phone: +1.4252982646
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2016-11-16T22:32:15.00Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+---------- Reverse IP lookup ----------
+
+3 domain(s) found : 
+--- 91.121.133.155 ---
+www.scanity.net [91.121.133.155] 80 (http) open
+
+--- ns357136.ip-91-121-133.eu ---
+ns357136.ip-91-121-133.eu [91.121.133.155] 80 (http) open
+
+--- scanity.net ---
+scanity.net [91.121.133.155] 80 (http) open
+

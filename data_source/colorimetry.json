@@ -1,0 +1,60 @@
+{
+  "scanners" :
+  {
+    "common":
+    {
+      "bold" : "(-{3} [A-Z,a-z,0-9,\\-,.]{1,} -{3})",
+      "orange" : "(Registrant )|(Admin )|(Tech )|(person: )|(address: )|(phone: )|(e-mail: )|(Name Server: )|(Date: )|(\\(http\\))"
+    },
+
+    "whatweb":
+    {
+      "bold": "\\[( )(.*)( )\\]|\\[( )(.*)( )\\]|([A-Z]{4} [a-z,A-Z]{1,}:)",
+      "orange": "([a-z,A-Z]{1,})( {2,}: )|([a-z,A-Z]{1,}: \\([0-9]\\))"
+    },
+
+    "sslyze":
+    {
+      "bold":"(\\* )",
+      "orange":"(VULNERABLE)|(X509v3)|(Before:)|(After:)|(Issuer:)|(exception)|(socket.error)|(Timeout)|(timed out)|( error )|(error:)|(ERROR)|( rejected )|(SSLHandshakeRejected)|(OpenSSLError)|(NOT SUPPORTED)"
+    },
+
+    "nmap":
+    {
+      "bold": "([0-9]{1,5}\\/)(tcp)|(udp)",
+      "orange": "(\\| )|(\\|\\_)"
+    },
+
+    "nikto":
+    {
+      "bold": "(IP: )|(Hostname: )|(Port: )|(Time: )|(Server: )|(terminated: )|(Time: )",
+      "orange": "(XSS )|(SQL )|(overflow )|(backdoor )|(infected )|(restricted )|(vulnerable )|(execute )|(root )|(admin )|(password )|(outdated )|(inclusion )|(injection )|(crash )|(major )|(multiple )|(remotely )|(authentication )|(denial of service)|(DoS )|(exploit )|(upgraded )|(upload )|(command )|(overwriting )"
+    },
+
+    "arachni":
+    {
+      "bold": "(.*\\[\\+\\] \\[[0-9]{1,3}\\])|(\\[\\+\\] )(?=System)|(\\[\\*\\] )|( \\* )|(\\[\\~\\] )(?=Relevant)",
+      "orange": "(\\[\\+\\] )(?!http)(?!Web)(?!System)(?!No)(?!Plugin)(?!With)|(\\[\\-\\] )(?=http)|(\\[~\\] )((?=Digest)|(?=Severity)|(?=~~~))"
+    },
+
+    "joomlavs":
+    {
+      "bold": "(\\[\\+\\])",
+      "orange": "(\\[\\!\\] )(?!Found 0)"
+    },
+
+    "wpscan":
+    {
+      "bold":"(\\[\\!\\])",
+      "orange":"(\\[\\+\\])"
+    },
+
+    "droopescan":
+    {
+      "bold": "(\\[\\+\\] )((Accepted)|(Scan)|(No))",
+      "orange": "(\\[\\+\\] )((Possible)|(.*found:))"
+    }
+
+
+  }
+}

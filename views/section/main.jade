@@ -1,0 +1,80 @@
+//- main.jade
+    -Contains the audit form, service details
+    -Created by : Erenox the : 02/07/2016
+    -Last update : 16/07/2016
+
+section#main
+
+    #parameters
+
+        //- warn zone
+        #warn
+            img(alt='warning' src='#')
+            p()
+
+        if name
+            script.
+                warning("#{name}", "#{message}");
+
+        h1 Start a Scan
+
+        //- form fields
+        form(method='post', action='/audit/')
+
+            //- domain's fields
+            #domain(class="aligned")
+                label Domain :
+                input(type='text', name='input[domain]', maxlength='70', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');", onkeyup='validate_input(this,false);', placeholder='www.scanity.net' autocomplete="off")
+                input(disabled=true, type='submit', name='submit[domain]', value='OK')
+
+            //- host's fields
+            #host(class="aligned")
+                label Host :
+                input(type='text', name='input[host]', maxlength='15', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');", onkeyup='validate_input(this,false)', placeholder='91.121.133.155' autocomplete="off")
+                input(disabled=true, type='submit', name='submit[host]', value='OK')
+
+            //- type fields
+            #type(class="aligned")
+                label Type :
+                select(id="select", name='input[selector]')
+                    option(value='0') Host audit
+                    option(value='1') Web audit
+                    option(value='2') CMS : Joomla
+                    option(value='3') CMS : Wordpress
+                    option(value='4') CMS : Drupal
+
+
+            //- options fields
+            #options
+
+                //- Agree checkbox
+                input(type='checkbox', name='setting[terms]', onclick='validate_setting(this);')
+                label(id='terms_label') Agree the terms of use.
+
+                br
+
+                //- Archive checkbox
+                input(type='checkbox', name='setting[archive]', onclick='validate_setting(this);')
+                label(id='archive_label') Display on the Archive.
+
+    //- specifications
+    #specifications
+
+        .spec_tools(onmouseover="imghover('tools');", onmouseout="imgunhover('tools');" onclick="window.open('/audit/587a8bc59037af7e78d9ed95');")
+            img(id='tools', src='/images/*tools.png', alt='tools')
+            h2 Audit tools
+            img(id='code', src='/images/code.png', alt='code_background')
+            p(id='scanners', class="txt_orange") whatweb - sslyze - nmap - nikto - arachni - joomlavs - wpscan - droopescan
+            p(id='example', class="txt_orange") click here for view an audit example.
+
+        //- about update
+        .specification(onmouseover="imghover('update');", onmouseout="imgunhover('update');")
+            img(id='update', src='/images/*update.png', alt='update')
+            h2 Update
+            p All tools used in the audit process are updated at their latest version. Other tools can be added for improve the service.
+
+        //- about reports
+        .specification(onmouseover="imghover('report');", onmouseout="imgunhover('report');")
+            img(id='report', src='/images/*contact.png', alt='report')
+            h2 Report
+            p You want to complain about something ? Or just give me your opinions. Do not hesitate  i'm open to discuss. #[a(href='/contact/') Contact me]

@@ -1,0 +1,135 @@
+#!/usr/bin/env node
+"use strict";
+
+/* www.js
+ * Contain routes for main '/audit' page
+ * Created by : Webstorm the : 01/07/2016
+ * Last update : 14/01/2017
+ */
+
+/*
+* Modules
+*/
+var app = require('../app');
+var debug = require('debug')('Scanity:server');
+var http = require('http');
+var fs = require('fs');
+var https = require('https');
+
+/*
+* Private Modules
+*/
+var socket_manager = require('../private_modules/socketio_manager');
+var logs_writer = require('../private_modules/logs_writer');
+var settings = require('../settings');
+
+/*
+* local vars
+*/
+var server;
+var port;
+
+// security certificate found
+if(fs.existsSync(settings.cert) && fs.existsSync(settings.key))
+{
+    //<editor-fold desc="HTTP secure redirection">
+    http.createServer(function (req, res)
+    {
+        // redirect from http to https
+        res.writeHead(301, {"Location": "https://" + req.headers['host'] + req.url});
+        res.end();
+    }).listen(80);
+    //</editor-fold>
+
+    //<editor-fold desc="Secure HTTP server instance">
+    // define the server listen port (https)
+    port = 443;
+    app.set('port', port);
+
+    // set the certificate
+    var secure =
+    {
+        cert: fs.readFile(settings.cert),
+        key: fs.readFile(settings.key)
+    };
+
+    // create secure HTTP server.
+    server = https.createServer(secure, app);
+    //</editor-fold>
+}
+else // security certificate not found
+{
+    //<editor-fold desc="HTTP server instance">
+    // define the server listen port (http)
+    port = 80;
+    app.set('port', port);
+
+
+    // create HTTP server.
+    server = http.createServer(app);
+    //</editor-fold>
+}
+
+/*
+* create socket.io instance.
+*/
+var io = require('socket.io')(server);
+socket_manager.set_io_instance(io);
+
+/*
+* listen on provided port, on all network interfaces.
+*/
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+/*
+* event listener for HTTP server "error" event.
+*/
+function onError(error)
+{
+  
+  if (error.syscall !== 'listen')
+  {
+      throw error;
+  }
+
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+  // handle specific listen errors with 'friendly' messages
+  switch (error.code)
+  {
+    // Error : requires elevated privileges
+    case 'EACCES':
+      error.message = bind + ' requires elevated privileges';
+      console.error(error.message);
+      logs_writer.write('server', '[server] : ' + error.message);
+      process.exit(1);
+      break;
+      
+    // Error : port 80 is already in use
+    case 'EADDRINUSE':
+      error.message = bind + ' requires elevated privileges';
+      console.error(error.message);
+      logs_writer.write('server', '[server] : ' + error.message);
+      process.exit(1);
+      break;
+
+    // Undefined error 
+    default:
+      throw error;
+  }
+}
+
+/*
+* event listener for HTTP server 'listening' event.
+*/
+function onListening()
+{
+  var address = server.address();
+
+  var bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + address.port;
+
+  debug('Listening on ' + bind);
+}

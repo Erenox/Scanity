@@ -1,0 +1,30 @@
+//- index.jade
+    -The main page
+    -Created by : Erenox the : 02/07/2016
+    -Last update : 14/01/2017
+
+doctype html
+
+html(lang='en')
+    //- include the head (metadata, css, js, title)
+    include ./partials/head
+
+    body(class='body_main')
+
+        //- socket.io '/archive' namespace connector
+        script var archive_socket = io('/archive');
+
+        //- include the header (top)
+        include ./partials/header
+
+        //- include the terms (left)
+        include section/terms
+
+        //- include the main content (middle)
+        include section/main
+
+        //- include the archive (right)
+        include section/archives
+
+        //- include the footer (bottom)
+        include ./partials/footer

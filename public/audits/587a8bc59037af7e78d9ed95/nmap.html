@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head> <link rel='stylesheet' type='text/css' href='../../stylesheets/audit.css'> </head>
+<body>
+<pre>
+<code>
+Starting Nmap 7.12SVN ( https://nmap.org ) at 2017-01-14 21:36 CET
+Warning: 91.121.133.155 giving up on port because retransmission cap hit (6).
+Nmap scan report for www.scanity.net (91.121.133.155)
+Host is up (0.048s latency).
+Not shown: 1997 closed ports
+PORT    STATE    SERVICE      VERSION
+<span class='txt_bold'>80/tcp  open     http</span>
+<span class='txt_orange'>|_http-title: Did not follow redirect to https://www.scanity.net/</span>
+<span class='txt_bold'>443/tcp open     ssl/http     Node.js (Express middleware)</span>
+<span class='txt_orange'>|_http-generator: Node.js, Express, Socket.io</span>
+<span class='txt_orange'>|_http-title: Scanity - Webaudit and Security service</span>
+<span class='txt_orange'>| ssl-cert: Subject: commonName=scanity.net</span>
+<span class='txt_orange'>| Not valid before: 2016-11-18T00:00:00</span>
+<span class='txt_orange'>|_Not valid after:  2017-11-18T23:59:59</span>
+<span class='txt_orange'>|_ssl-date: TLS randomness does not represent time</span>
+<span class='txt_orange'>| tls-nextprotoneg: </span>
+<span class='txt_orange'>|   http/1.1</span>
+<span class='txt_orange'>|_  http/1.0</span>
+<span class='txt_bold'>445/tcp filtered microsoft-ds</span>
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.12SVN%I=7%D=1/14%Time=587A8C1F%P=x86_64-unknown-linux-gn
+SF:u%r(GetRequest,78,&quot;HTTP/1\.1\x20301\x20Moved\x20Permanently\r\nLocation
+SF::\x20https://undefined/\r\nDate:\x20Sat,\x2014\x20Jan\x202017\x2020:35:
+SF:01\x20GMT\r\nConnection:\x20close\r\n\r\n&quot;)%r(HTTPOptions,78,&quot;HTTP/1\.1
+SF:\x20301\x20Moved\x20Permanently\r\nLocation:\x20https://undefined/\r\nD
+SF:ate:\x20Sat,\x2014\x20Jan\x202017\x2020:35:01\x20GMT\r\nConnection:\x20
+SF:close\r\n\r\n&quot;)%r(FourOhFourRequest,9B,&quot;HTTP/1\.1\x20301\x20Moved\x20Pe
+SF:rmanently\r\nLocation:\x20https://undefined/nice%20ports%2C/Tri%6Eity\.
+SF:txt%2ebak\r\nDate:\x20Sat,\x2014\x20Jan\x202017\x2020:35:02\x20GMT\r\nC
+SF:onnection:\x20close\r\n\r\n&quot;);
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.10 - 4.1
+Network Distance: 12 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 124.80 seconds</code>
+</pre>
+</body>
+</html>

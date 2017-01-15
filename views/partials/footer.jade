@@ -1,0 +1,17 @@
+//- footer.jade
+    -Contains node.js and parrotSec logo
+    -Created by : Erenox the : 01/07/2016
+    -Last update : 14/01/2017
+
+footer
+    h2 Scanity Powered With
+
+    - var domains = ['nodejs.org','parrotsec.org','mongodb.org','socket.io',]
+
+    //- display footer's logo
+    each domain in domains
+        a(href='http://#{domain}', target='_blank')
+            img(src='/images/#{domain}.png', alt='#{domain}_logo', onmouseover='highlight(this, true);', onmouseout='highlight(this, false);')
+
+    //- include the page loading timer (end)
+    include ./loading

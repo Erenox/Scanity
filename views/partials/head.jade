@@ -1,0 +1,35 @@
+//- head.jade
+    -Contains metadatas, stylesheets, javascripts, and title
+    -Created by : Erenox the : 01/07/2016
+    -Last update : 14/01/2017
+head
+
+    //- page title
+    title Scanity - Webaudit and Security service
+
+    //- page favicon location
+    link(rel='icon', type='image/x-icon', href='/favicon.ico')
+
+    //- the meta section
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
+    meta(name='title', content='Scanity - webaudit and security service.')
+    meta(name='description', content='This service is provided for help admin to improve the security of their website. It uses some audit tools like Nmap, Nikto, Arachni and more.')
+    meta(name='keywords', content='Scanity, audit, scan, scanning, security online, whatweb, nmap, sslyze, nikto, arachni, wpscan, joomlavs, droopescan')
+    meta(name='category', content='audit, security, online')
+    meta(name='distribution', content='global')
+    meta(name='robots', content='index, nofollow')
+    meta(name='revisit-after', content='20 day')
+    meta(name='generator', content='Node.js, Express, Socket.io')
+    meta(name='identifier-url', content='http://www.scanity.net/')
+
+    //- the stylesheets section
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css')
+    link(href='/stylesheets/pace.css', rel='stylesheet', type='text/css')
+
+    //- the scripts section
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script window.paceOptions = {ajax: false,restartOnRequestAfter: false};
+    script(type='text/javascript', src='/javascripts/pace.min.js')
+    script(type='text/javascript', src='/javascripts/animation.js')
+    script(type='text/javascript', src='/javascripts/inputs.js')
+    script(type='text/javascript', src='/javascripts/websocket.js')

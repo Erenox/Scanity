@@ -1,0 +1,679 @@
+@charset "UTF-8"
+
+//- The constants section
+$high_orange: #FF3200
+$medium_orange: #FF5000
+$low_orange: #FF9600
+
+$transparent_gray: rgba(40,40,40,0.6)
+$black_gray: #222222
+$dark_gray: #505050
+$low_gray: #AAAAAA
+$medium_gray: #BBBBBB
+$high_gray: #CCCCCC
+//- End : constants section
+
+
+//-  The functions section
+@mixin absolute-margin-mixin($size)
+  top: $size
+  bottom: $size
+  left: $size
+  right: $size
+
+
+@mixin box-shadow($x,$y,$blur,$spread,$color)
+  $shadow: $x $y $blur $spread $color
+
+  -webkit-box-shadow: $shadow
+  -moz-box-shadow: $shadow
+  -o-box-shadow: $shadow
+  -ms-box-shadow: $shadow
+  box-shadow: $shadow
+
+
+@mixin unselectable()
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -o-user-select: none
+  user-select: none
+// End : functions section
+
+//- The general section
+*
+  font-family: Arial
+  color: white
+
+  input[type='text']:enabled:hover, input[type='checkbox']:enabled:hover, select:enabled:hover, textarea:enabled:hover
+    @include box-shadow(0,0,2px,2px,rgba(255,50,0,0.4))
+    webkit-transition: border-radius 2s
+
+
+h1, h2, h3
+  font-family: "Arial Black", Gadget, sans-serif
+  margin: 0
+
+h1
+  font-size: 1rem
+  color: $high_orange
+
+h2
+  font-size: 0.875rem
+  color: $medium_orange
+
+h3
+  font-size: 0.750rem
+  color: $low_orange
+
+a
+  font-weight: bold
+  text-decoration: none
+
+  &:link
+    color: yellow
+
+  &:hover
+    color: orange
+
+  &:visited
+    color: red
+
+.txt_red
+  color: red
+
+.txt_orange
+  color: orange
+
+.txt_green
+  color: green
+
+.txt_bold
+  font-weight: bold
+
+input[type="checkbox"]
+  -moz-appearance: none
+  -o-appearance: none
+  -ms-appearance: none
+
+input[type="text"]
+  text-transform: lowercase
+
+#loading
+  margin-top: 10px
+  margin-bottom: 0
+  text-align: center
+  color: $high_orange
+  font-weight: bolder
+  font-size: 0.625rem
+
+//- End : general section
+
+
+//- The containers section
+html
+  display: inline-block
+  position: static
+  width: 100%
+  height: 95%
+  padding-top: 15px
+  background-image: url(../images/patterns/background.png)
+
+body
+  background-image: url(../images/patterns/mooning.png)
+  border: medium solid $high_orange
+  @include box-shadow(0,0,6px,6px,rgba(255,50,0,0.8))
+
+body.body_main
+  display: table
+  width: 880px
+  margin-right: auto
+  margin-left: auto
+  border-radius: 60px
+
+body.body_centered
+  position: absolute
+  width: 400px
+  height: 200px
+  margin: auto
+  @include absolute-margin-mixin(0px)
+  border-radius: 32px
+
+input[type="text"], input[type="submit"], select, textarea
+  border: 0
+  border-radius: 1px
+  background-color : $black_gray
+//- End : containers section
+
+
+//- The header section
+header
+  height: 90px
+  overflow:  visible
+
+#banner
+  display: block
+  margin-left: auto
+  margin-right: auto
+  margin-top: -20px
+  @include unselectable()
+
+//- End : header section
+
+//- Alignment
+#terms, #main, #archives
+  min-height: 340px
+
+
+#terms, #archives
+  width: 232px
+  margin: 20px 11px 0
+  max-height: 350px
+  overflow: hidden
+
+  img
+    display: block
+    float: left
+    width: 36px
+    height: 36px
+    margin-left: 15px
+
+  h2, h3, img
+    float: left
+
+  h2
+    width: 60%
+    margin-left: 2px
+    white-space: nowrap
+
+
+  h3
+    display: block
+    line-height: 12px
+    margin-left: 4px
+//- End : Alignment
+
+//- The terms section
+#terms
+  float: left
+  clear: left
+
+  p
+    float : left
+    width: 100%
+    margin-top: 6px
+    margin-bottom: 6px
+    //padding-left: 4px
+    //padding-right: 4px
+    line-height: 10px
+    font-size: 0.625rem
+    text-align: justify
+
+.centerize
+  width: 100%
+  text-align: center
+//- End : terms section
+
+
+//- Main section
+#main
+  float: left
+  width: 350px
+  margin: 0 11px
+
+#warn
+  display: inline-block
+  width: 100%
+  height: 18px
+  text-align: center
+  white-space: nowrap
+  visibility: hidden
+  @include unselectable()
+
+  img
+    display: inline
+    width:  12px
+    height: 12px
+    margin-top: 2px
+    margin-right: 5px
+
+  p
+    display: inline
+    height: 13px
+    margin-left: auto
+    margin-right: auto
+    font-size: 13px
+    font-weight: bolder
+
+#parameters
+  display: inline-block
+  width: 350px
+
+  h1
+    padding-left: 25px
+    text-align: center
+
+.aligned , #options
+  display: table
+  margin: auto
+  white-space: nowrap
+
+.aligned
+  width: 263px
+  padding-top: 2px
+  padding-bottom: 2px
+
+  label
+    display: inline-block
+    width: 65px
+    height: 15px
+    max-height: 15px
+    font-size: 0.875rem
+    font-weight: bold
+    text-align: right
+    color: $low_orange
+
+  input[type="text"]
+    width: 135px
+    margin-left: 8px
+    margin-right: 8px
+    line-height: 0.875rem
+
+  select
+    width: 135px
+    margin-left: 8px
+    border: 1px
+
+  input[type="checkbox"]
+    display: inline
+    width: 11px
+    height: 11px
+
+
+#type
+  display: none
+
+#terms_label
+  color: red
+
+#options
+  margin-top: 2px
+  margin-bottom: 2px
+
+  input, label
+    width: 10px
+    height: 10px
+    margin-top: 4px
+    margin-bottom: 4px
+    margin-right: 10px
+    font-size: 0.750rem
+
+
+#specifications
+  display: block
+  width: 350px
+  height: 220px
+  font-size: 0.938rem
+  text-align: justify
+
+.spec_tools
+  width: 350px
+  height: 90px
+  margin-top: 5px
+
+  p
+    text-align: center
+
+  h2
+    float: left
+    height: 24px
+    padding-top: 4px
+
+  #tools
+    float: left
+    margin-right: 5px
+
+  #scanners
+    margin-top: -65px
+    font-weight: bolder
+    word-spacing: 5px
+
+  #example
+    margin-top: -15px
+    font-size: 0.8rem
+
+  #code
+    width: 350px
+    height: 85px
+    margin: -22px 0 0
+    opacity : 0.3
+    filter : alpha(opacity=30)
+
+.specification
+  position: relative
+  float: left
+  clear: right
+  width: 175px
+  height: 90px
+  margin-top: 4px
+  *
+    float: left
+  p
+    height: 75px
+    margin-top: 0
+    padding-left: 8px
+    padding-right: 8px
+    margin-bottom: 0
+    font-size: 0.8rem
+    line-height: 13px
+    overflow: hidden
+
+  a
+    float: none
+
+  img
+    width: 20px
+    height: 20px
+    margin-left: 16px
+    margin-top: 2px
+    margin-bottom: 2px
+
+  h2
+    width: 100px
+    margin: 2px 5px
+    overflow: hidden
+
+//- End : main section
+
+//-The archive section
+#archives
+  float: right
+  clear: right
+
+#links
+  float: left
+
+#links > table
+  float: left
+  width:  232px
+  margin-top: 6px
+  margin-bottom: 2px
+  font-size: 0.625rem
+  font-weight: bold
+  table-layout: fixed
+  text-align: center
+  border: 2px solid $high_gray
+  border-radius: 4px
+  white-space: nowrap
+  overflow: hidden
+
+  #col_date
+    width: 42%
+
+  #col_target
+    width: 58%
+
+  td, th
+    border: 1px solid $medium_gray
+
+thead
+  th
+    font-size: 14px
+    color: $low_orange
+
+tbody
+  tr
+    min-height: 17px
+    height: 17px
+
+  td
+    overflow: hidden
+
+#search
+  float: left
+  display: inline-block
+  width: 150px
+  margin: 5px 52px
+  font-weight: bold
+  white-space: nowrap
+
+  input[type="text"]
+    float: left
+    width: 128px
+    height: 14px
+    border-radius: 4px
+    padding-right: 20px
+
+  input[type="submit"]
+    float: left
+    width: 20px
+    height: 20px
+    margin-left: -20px
+    background: url("../images/search.png") no-repeat scroll 0 0 transparent
+    border: none
+
+  ::-moz-focus-inner
+    border: 0
+//- End  : archive section
+
+
+//- The footer partial
+footer
+  float: left
+  position: static
+  display: inline-block
+  width: 880px
+  height: 45px
+  border-top: 2px solid rgba(255,50,0,0.1)
+  text-align: center
+
+  h2
+    text-align: center
+    font-size: 0.688rem
+    color: $dark_gray
+
+  a
+    display: inline-block
+    margin-right: 5px
+    margin-left: 5px
+
+  img
+    display: block
+    width: 24px
+    height: 24px
+    margin-left: auto
+    margin-right: auto
+    opacity : 0.6
+    filter : alpha(opacity=60)
+//- End : footer partial
+
+
+//-The error page
+#error
+  text-align: center
+
+  h1, h2
+    margin: 0
+    color: white
+    text-shadow: 2px 2px 4px white
+
+  h1
+    font-size: 5rem
+
+  h2
+    font-size: 1.5rem
+
+  p
+    margin: 4px
+    font-size: 0.875rem
+    font-weight: bolder
+    color: $high_orange
+
+// End : error page
+
+
+//- The contact Page
+#contact
+  float: left
+  text-align: center
+
+  h1, img
+    display: inline-block
+    vertical-align: middle
+    margin-top: 25px
+    margin-bottom: 5px
+    margin-right: 5px
+
+  textarea
+    width: 660px
+    margin-top: 5px
+    resize: none
+
+  label
+    margin-left: 5px
+    margin-right: 5px
+
+  select, input[type="text"]
+    width: 150px
+    margin-right: 5px
+
+  input[type="submit"]
+    margin-top: 5px
+    margin-bottom: 25px
+// End : contact page
+
+// The target section
+#target
+  display: block
+  width: 410px
+  margin: 5px auto
+  text-align: center
+  font-size: 0
+
+  h1, img
+    display: inline-block
+    vertical-align: middle
+
+  h1
+    margin-left: 12px
+    margin-right: 12px
+
+  img
+    width: 18px
+    height: 18px
+
+  label,a
+    display: inline-block
+    white-space: nowrap
+    font-size: 0.688rem
+    font-weight: bold
+    line-height: 0.938rem
+    font-family: Consolas, "Andale Mono", "Lucida Console"
+
+  label
+    margin: 0
+    color: $low_orange
+
+.field
+  width: 175px
+  text-align: right
+  padding-right: 5px
+
+.value
+  width: 225px
+  text-align: left
+//- End target section
+
+// The results section
+#results
+  display: inline-block
+  width: 94%
+  margin: 0 3%
+
+.result
+  margin-top: 10px
+  margin-bottom: 10px
+  border: 1px solid white
+  @include box-shadow(0,0,2px,2px,rgba(255,255,255,0.8))
+
+.scan_header
+  display: block
+  height: 24px
+  width: 100%
+  text-align: left
+  background-color: $transparent_gray
+
+  *
+    float: left
+    margin-left: 5px
+    margin-right: 5px
+
+  h2, label, img
+    @include unselectable()
+
+  h2, label
+    height: 24px
+    line-height: 1.5rem
+
+  h2
+    width: 110px
+
+  label
+    width: 430px
+    font-size: 0.625rem
+    white-space: nowrap
+    overflow: hidden
+    color: $low_orange
+
+  img[alt='icon']
+    width: 24px
+    height: 24px
+    margin-left: 0
+
+  img[alt='progress']
+    margin-top: 5px
+    margin-bottom: 5px
+
+  button
+    float: right
+    width: 24px
+    height: 24px
+    margin: 0
+    padding: 0
+    border: none
+
+.scan_body
+  display: none
+  width: 100%
+  height: 250px
+  border-top: 1px solid rgba(255,255,255,0.5)
+
+  object
+    float: left
+    width: 100%
+    height: 100%
+    margin: 0
+    background-color: rgba(0, 0, 0, 0.5)
+// End : scan section
+
+// the credits section
+#credits
+  margin-bottom: 15px
+  text-align: center
+
+  img
+    position: relative
+    margin-top: -4px
+    opacity: 0.4
+    z-index: 1
+  p
+    position: relative
+    width: 720px
+    margin: -24px auto 0px auto
+    font-weight: bold
+    color: $low_orange
+    font-size: 0.625rem
+    overflow: hidden
+    z-index: 2
+
+// End : Credits section

@@ -1,0 +1,30 @@
+//- audit.jade
+    -The audit page
+    -Created by : Erenox the : 06/07/2016
+    -Last update : 14/01/2017
+
+doctype html
+
+html(lang='en')
+    //- include the head (metadata, css, js, title)
+    include ./partials/head
+
+    body(class='body_main')
+
+        //- socket.io '/audit' namespace connector
+        script var audit_socket = io('/audit');
+
+        //- include the header (top)
+        include ./partials/header
+
+        //- display target details
+        include section/target
+
+        //- display audit results board
+        include section/results
+
+        //- display credits
+        include section/credits
+
+        //- include the footer
+        include ./partials/footer

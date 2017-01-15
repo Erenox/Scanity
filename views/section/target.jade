@@ -1,0 +1,34 @@
+//- target.jade
+    -Contains the target details
+    -Created by : Erenox the : 06/07/2016
+    -Last update : 06/07/2016
+
+section#target(onmouseover="imghover('target_icon');", onmouseout="imgunhover('target_icon');")
+
+    img(id='target_icon' src='/images/*target.png', alt='icon')
+    h1 Target
+    img(src='/images/flags32/#{target.country_code}.png', onerror="this.src='/images/flags32/default.png';" alt='flag')
+    br
+
+    if (target.host)
+        label(class='field') IP :
+        a(class='value' href='http://#{target.host}', target='_blank') #{target.host}
+
+    if (target.domain)
+        label(class='field') Domain :
+        a(class='value' href='http://#{target.domain}', target='_blank')  #{target.domain}
+
+    label(class='field') Location :
+
+    if (target.location !== 'unknown')
+        a(class='value' href='http://google.com/maps/place/#{target.location}', target='_blank') #{target.location}
+    else
+        label(class='value') #{target.location}
+
+    label(class='field') Begin on :
+    label(class='value')
+        script document.write(date_formatting(!{JSON.stringify(target.date)}, false));
+
+    label(class='field') User uid :
+    label(class='value') #{target.user_uid}
+

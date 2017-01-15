@@ -1,0 +1,7 @@
+Sitemap: https://www.scanity.net/sitemap.xml
+
+User-agent: *
+Disallow: /audit/*
+
+User-agent: Googlebot-Image
+Disallow: /

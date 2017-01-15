@@ -1,0 +1,33 @@
+//- archive.jade
+    -Contain the latest audits
+    -Created by : Erenox the : 03/07/2016
+    -Last update : 03/07/2016
+
+section#archives(onmouseover="imghover('archive');", onmouseout="imgunhover('archive');")
+
+    //- the archive header
+    img(id='archive', src='/images/*archive.png', alt='archive')
+    h2 Archive
+    h3 Latest Audits
+
+    //- the archive links
+    #links
+        table
+            thead
+                tr
+                    th(scope='col' id='col_date') Date
+                    th(scope='col' id='col_target') IP/Domain
+            tbody(id='archive_body')
+
+                //- load statically empty table (better rendering)
+                - for (var i=0; i<12; i++)
+                    tr
+                        td &nbsp;
+                        td &nbsp;
+
+    //- the archive search
+    #search
+        input(type='text', id='search_input', maxlength='30', onmouseover="fieldshovers(this.id,'textbox');", onmouseout="fieldsunhovers(this.id,'textbox');", onchange='validate_search(this.value);', onkeyup='this.onchange();', placeholder='search')
+        input(id="sub_search", type='submit', value='', onclick='archive_search();')
+
+        script window.onload = function() {archive_search();} // require DOM

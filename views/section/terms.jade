@@ -1,0 +1,24 @@
+//- terms.jade
+    -Contains service terms of use
+    -Created by : Erenox the : 02/07/2016
+    -Last update : 02/07/2016
+
+
+section#terms(onmouseover="imghover('tou');", onmouseout="imgunhover('tou');")
+
+    //- the terms header
+    img(id='tou', src='/images/*tou.png', alt='tou')
+    h2 Terms of use
+
+    //- the terms
+    h3 I - About Audits
+    p This service is provided for help administrators to improve the security of their website.
+        b If you want to use it, you must be the website owner or have his direct consent.
+        | You have to respect the local and international laws about cybercrime and intrusive offences.
+    p This service uses some scan tools for the audit process. The hosting provider, service provider, original authors, can not be responsible on any type of damages during or after the audit process.
+
+    h3.centerize II - About Results
+    p The results are stored on this server. Audits can be hidden or display on the archive, in the last case everyone is free to check it with a search on the archive. If you disagree with this point you must not use this service.
+    p Someone have audited your website without your consent ? You can ask me to remove the audit results, your website can be blacklisted for prevent future security audits. #[a(href='/contact/') Contact me #[span]]
+
+    p(class='txt_red') By using this service, you read and agree the previous terms.

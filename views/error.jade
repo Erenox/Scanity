@@ -1,0 +1,15 @@
+//- error.jade
+    -The error page
+    -Created by : Erenox the : 05/07/2016
+    -Last update : 14/01/2017
+doctype html
+
+html(lang='en')
+    //- include the head (metadata, css, js, title)
+    include ./partials/head
+
+    body(class='body_centered', onload='countdown(4)')
+        #error()
+          h1 #{status}
+          h2 #{message}
+          p(id='timer')

@@ -1,0 +1,78 @@
+WhatWeb report for http://www.scanity.net
+Status    : 301 Moved Permanently
+Title     : <None>
+IP        : 91.121.133.155
+Country   : FRANCE, FR
+
+Summary   : RedirectLocation[https://www.scanity.net/]
+
+Detected Plugins:
+[ RedirectLocation ]
+	HTTP Server string location. used with http-status 301 and 
+	302 
+
+	String       : https://www.scanity.net/ (from location)
+
+HTTP Headers:
+	HTTP/1.1 301 Moved Permanently
+	Location: https://www.scanity.net/
+	Date: Sat, 14 Jan 2017 20:33:32 GMT
+	Connection: close
+	Transfer-Encoding: chunked
+	
+WhatWeb report for https://www.scanity.net/
+Status    : 200 OK
+Title     : Scanity - Webaudit and Security service
+IP        : 91.121.133.155
+Country   : FRANCE, FR
+
+Summary   : MetaGenerator[Node.js, Express, Socket.io], HTML5, HttpOnly[connect.sid], Cookies[connect.sid], Script[text/javascript], X-Powered-By[Express]
+
+Detected Plugins:
+[ Cookies ]
+	Display the names of cookies in the HTTP headers. The 
+	values are not returned to save on space. 
+
+	String       : connect.sid
+
+[ HTML5 ]
+	HTML version 5, detected by the doctype declaration 
+
+
+[ HttpOnly ]
+	If the HttpOnly flag is included in the HTTP set-cookie 
+	response header and the browser supports it then the cookie 
+	cannot be accessed through client side script - More Info: 
+	http://en.wikipedia.org/wiki/HTTP_cookie 
+
+	String       : connect.sid
+
+[ MetaGenerator ]
+	This plugin identifies meta generator tags and extracts its 
+	value. 
+
+	String       : Node.js, Express, Socket.io
+
+[ Script ]
+	This plugin detects instances of script HTML elements and 
+	returns the script language/type. 
+
+	String       : text/javascript
+
+[ X-Powered-By ]
+	X-Powered-By HTTP header 
+
+	String       : Express (from x-powered-by string)
+
+HTTP Headers:
+	HTTP/1.1 200 OK
+	X-Powered-By: Express
+	Content-Type: text/html; charset=utf-8
+	ETag: W/"1d9f-MuwJAnMjcQp7nYlQPz0Pnw"
+	set-cookie: connect.sid=s%3AQmi36fRdUlPA1OfpidnIL-sdiLlmBtHA.cSEbwXzwOat6EvSdupPv2%2BxC5HLq6Cmz4v8kUaASFb8; Path=/; HttpOnly
+	Vary: Accept-Encoding
+	Content-Encoding: gzip
+	Date: Sat, 14 Jan 2017 20:33:34 GMT
+	Connection: close
+	Transfer-Encoding: chunked
+	
