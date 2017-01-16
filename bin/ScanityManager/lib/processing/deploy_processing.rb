@@ -126,12 +126,12 @@ class Deploy
       server_package_installer(package)
     end
 
-    # install a required backups tool package via apt
+    # install a required audit tool package via apt
     apt_audit.each do |package|
       audit_package_installer(package)
     end
 
-    # install custom private required backups packages via local deb
+    # install custom audit tooy packages via local deb
     apt_custom.each do |package|
       custom_package_installer(package)
     end
@@ -146,12 +146,9 @@ class Deploy
       bundle_installer(name)
     end
 
-    # install audit example 'default'
+    # install audit example 'defaults'
     backup_installer('defaults')
-
-    # require user approval
-    puts 'an reboot is needed for apply some change !'
-
+    
   end
   #</editor-fold>
 
