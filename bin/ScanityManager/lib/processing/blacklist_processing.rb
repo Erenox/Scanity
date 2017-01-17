@@ -1,4 +1,4 @@
-# ./lib/processing/server.rb
+# ./lib/processing/blacklist_processing.rb
 # processing archive operations
 # Created by : Erenox the : 14/01/2017
 # Last update : 14/01/2017
@@ -69,15 +69,15 @@ class Blacklist
 
     if type.downcase == 'host' # add a new host
 
-      print 'enter a new host now : '.alert
+      print 'enter a new host : '.alert
       host = gets.chomp
 
-      # if host is valid, and host in not in blacklist
+      # if host is valid and not already in blacklist
       if host.match(@host) && !blacklist.includes?(host)
         blacklist[type].push(host) # push new host
         save_blacklist(blacklist) # save the blacklist
 
-        puts "\n[ OK ] - host was added successfully to blacklist.".valid
+        puts "\n[ OK ] - host was append to blacklist.".valid
 
       else # invalid host, or already on blacklist
         puts "\n[ ERROR ] - host is invalid or already on blacklist !".error
@@ -86,15 +86,15 @@ class Blacklist
 
     elsif type.downcase == 'domain' # add a new domain
 
-      print 'enter a new domain now : '.alert
+      print 'enter a new domain : '.alert
       domain = gets.chomp
 
-      # if domain is valid, and host in not in blacklist
+      # if domain is valid, and not already in blacklist
       if domain.match(@domain)
         blacklist[type].push(domain) # push new domain
         save_blacklist(blacklist) # save the blacklist
 
-        puts "\n[ OK ] - domain was added successfully to blacklist.".valid
+        puts "\n[ OK ] - domain was append to blacklist.".valid
 
       else # invalid domain, or already on blacklist
         puts "\n[ ERROR ] - domain is invalid or already on blacklist !".error
@@ -103,7 +103,7 @@ class Blacklist
 
     else
       # bad parameter, expected 'host/domain'
-      puts "\n[ ERROR ] unknown parameter : #{type}, exit.".error
+      puts "\n[ ERROR ] - unknown parameter : #{type}, exit.".error
       exit
     end
 
@@ -127,14 +127,14 @@ class Blacklist
         blacklist['host'].delete(input) # remove an host
         save_blacklist(blacklist) # save the blacklist
 
-        puts "\n[ OK ] - #{input} have been removed in the blacklist !".valid
+        puts "\n[ OK ] - #{input} have been removed to blacklist !".valid
 
       # if domain is on blacklist
       elsif blacklist['domain'].include?(input)
         blacklist['domain'].delete(input) # remove an domain
         save_blacklist(blacklist) # save the blacklist
 
-        puts "\n[ OK ] - #{input} have been removed in the blacklist.".valid
+        puts "\n[ OK ] - #{input} have been removed to blacklist.".valid
 
       else # input is not in blacklist
         puts "\n[ ERROR ] - #{input} is not blacklisted !".error
