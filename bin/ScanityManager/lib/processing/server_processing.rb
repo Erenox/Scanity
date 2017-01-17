@@ -1,4 +1,4 @@
-# ./lib/processing/server.rb
+# ./lib/processing/server_processing.rb
 # Processing server operations
 # Created by : Erenox the : 28/10/2016
 # Last update : 02/12/2016
@@ -18,19 +18,19 @@ class Server
 
   #<editor-fold desc="static method : node_start">
   def self.node_start
-    System.exec('starting node.js service.',"cd #{@bin_dir} && sudo forever start --killSignal SIGKILL --minUptime 1000 --spinSleepTime 1000 -s -a -l /dev/null www",'node.js service is running.', 'impossible to start node.js service.')
+    System.exec('starting node.js service.',"cd #{@bin_dir} && sudo forever start --killSignal SIGKILL --minUptime 1000 --spinSleepTime 1000 -s -a -l /dev/null www",'node.js service is running.', 'failed to start node.js service.')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : node_stop">
   def self.node_stop
-    System.exec('stopping node.js service.','sudo forever stopall', 'node.js service is closed.', 'impossible to close node.js service.')
+    System.exec('stopping node.js service.','sudo forever stopall', 'node.js service is closed.', 'failed to close node.js service.')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : mongo_start">
   def self.mongo_start
-    System.exec('starting mongodb service.','sudo service mongod start', 'mongodb service is running.','impossible to start mongodb service.')
+    System.exec('starting mongodb service.','sudo service mongod start', 'mongodb service is running.','failed to start mongodb service.')
   end
   #</editor-fold>
 
@@ -61,16 +61,16 @@ class Server
     if active_audits.any?
 
       # require user approval
-      Approval.ask('some audits process is running, abort and remove the audit ?')
+      Approval.ask('some audits process are still running, abort them and remove the audit ?')
 
       # then unsafe close processing
-      puts "[ OK ] unsafe close processing. \n".valid
+      puts "[ OK ] - unsafe close processing. \n".valid
       active_audits.each do |audit|
         Archive.archive_remove(audit['_id'])
       end
 
     else
-      puts "[ OK ] server can be closed securely. \n".valid
+      puts "[ OK ] - server can be closed securely. \n".valid
     end
 
     # stop mongodb service
