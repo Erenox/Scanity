@@ -16,11 +16,11 @@ class Gems
     gem_name = e.message.split('--').last.strip
 
     # auto install the missing gem
-    System.exec("auto installing the missing gem: #{gem_name}.","sudo gem install #{gem_name}","gem #{gem_name} installed successfully","failed to install #{gem_name} gem.")
+    System.exec("auto installing the missing gem: #{gem_name}.","sudo gem install #{gem_name}","gem : #{gem_name} installed.","failed to install : #{gem_name} gem.")
 
     # retry
     Gem.clear_paths
-    puts 'Trying again ...'
+    puts '[ OK ] - Trying again ...'
     require gem_name
     retry
   end
