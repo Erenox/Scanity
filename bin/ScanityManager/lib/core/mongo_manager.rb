@@ -72,7 +72,7 @@ class Mongodb
   def self.get_audit_keys(id)
 
     db = db_open # open a database instance
-    audit = db['audits'].find(_id: id).first # get an backups by
+    audit = db['audits'].find(_id: id).first # get an backups by id
     db_close(db) # close the database instance
 
     if audit
