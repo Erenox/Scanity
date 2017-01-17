@@ -116,7 +116,7 @@ class Deploy
     set_permissions()
 
     # add missing repositories
-    add_repositories() // disabled for now
+    add_repositories()
 
     # update the OS repository
     update()
