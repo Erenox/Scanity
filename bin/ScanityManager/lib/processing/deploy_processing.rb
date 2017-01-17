@@ -24,7 +24,7 @@ class Deploy
   def self.set_permissions
 
       # get unix account name of service owner
-      print 'Enter a sudoer user defined as service owner, excepting root : '.alert
+      print 'enter a sudoer user defined as service owner, excepting root : '.alert
       service_owner = gets.chomp
 
       # define and check the service owner unix user
