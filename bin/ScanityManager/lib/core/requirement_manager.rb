@@ -19,7 +19,7 @@ class Requirement
 
     if services['nodejs'] || services['mongodb']
       # require user approval
-      Approval.ask('server is currently running, stop it for continue ?')
+      Approval.ask('must stop the server for continue, stop it now ?')
 
       # then stop the server
       Server.server_stop
@@ -36,7 +36,7 @@ class Requirement
 
     if !services['mongodb']
       # require user approval
-      Approval.ask('mongo service is currently stopped, start it now ?')
+      Approval.ask('must start mongod service for continue, start it now ?')
 
       # then start mongo service
       Server.mongo_start
@@ -46,5 +46,3 @@ class Requirement
   #</editor-fold>
 
 end
-
-
