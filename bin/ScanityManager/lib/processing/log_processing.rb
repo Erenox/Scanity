@@ -1,4 +1,4 @@
-# ./lib/processing/server.rb
+# ./lib/processing/log_processing.rb
 # processing logs management
 # Created by : Erenox the : 02/12/2016
 # Last update : 02/12/2016
@@ -18,46 +18,51 @@ class Log
     log = "#{@bin_dir}/../logs/#{type}.log"
 
     if File.file?(log)
+      
       if action == 'display'
         puts "[ OK ] - display #{type} log.".valid
         system("cat #{log}")
         puts "\n"
+        
       elsif action == 'remove'
         puts "[ OK ] - remove #{type} log.".valid
         system("rm #{log}")
+        
       else
-        puts '[ Error ] - unknown action to do with log.'.error
+        puts '[ Error ] - unknown action.'.error
       end
+      
     else
       puts "[ Error ] - #{type} log not found.".error
     end
+    
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : log_client">
   def self.log_client
-    puts '¤ display the client log.'
+    puts '¤ display client log file.'
     log_manager('client','display')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : log_server">
   def self.log_server
-    puts '¤ display the server log.'
+    puts '¤ display server log file.'
     log_manager('server','display')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : log_remove_client">
   def self.log_remove_client
-    puts '¤ remove the client log.'
+    puts '¤ remove client log file.'
     log_manager('client','remove')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : log_remove_server">
   def self.log_remove_server
-    puts '¤ remove the server log.'
+    puts '¤ remove server log file.'
     log_manager('server','remove')
   end
   #</editor-fold>
