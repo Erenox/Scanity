@@ -17,10 +17,9 @@ class System
     system("#{command}   > /dev/null 2>&1")
 
     if $? == 0
-      puts ("[ OK ] #{str_out} \n").valid
-
+      puts ("[ OK ] - #{str_out}\n").valid
     else
-      puts ("[ Error ] #{str_err} \n").error
+      puts ("[ ERROR ] - #{str_err}\n").error
     end
 
   end
@@ -33,16 +32,15 @@ class System
     AUDIT_PROCESSES.each do |process|
 
       if system("sudo pgrep #{process} > /dev/null") # if process running
-        system("sudo killall -9 #{process} > /dev/null")
-        puts "[ OK ] The remaining process : #{process} have been killed .".valid
-        killed_process += 1
+          system("sudo killall -9 #{process} > /dev/null")
+          puts "[ OK ] - process : #{process} killed.".valid
+          killed_process += 1
       end
 
     end
 
-    puts ("[ OK ] #{killed_process.to_s}  processes have been killed. \n").valid
+    puts ("[ OK ] - #{killed_process.to_s}  processes have been killed. \n").valid
 
   end
-
 
 end
