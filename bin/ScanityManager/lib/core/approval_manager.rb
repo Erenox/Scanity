@@ -22,12 +22,11 @@ class Approval
       exit
 
     else
-      puts ("[ Error ] unknown parameter : #{input}, exit.").error
+      puts ("[ ERROR ] - unknown parameter : #{input}, exit.").error
       exit
     end
 
   end
   #</editor-fold>
-
 
 end
