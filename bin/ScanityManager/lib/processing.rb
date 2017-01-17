@@ -3,7 +3,7 @@
 # Created by : Erenox the : 28/10/2016
 # Last update : 02/12/2016
 
-# private core gems
+# private core gems ./core/*
 require_relative './core/string_overwrite.rb'
 require_relative './core/services_manager.rb'
 require_relative './core/system_manager.rb'
@@ -11,13 +11,13 @@ require_relative './core/mongo_manager.rb'
 require_relative './core/requirement_manager'
 require_relative './core/initiative_manager'
 
-# private processing gems
+# private processing gems ../lib/processing/*
 require_relative '../lib/processing/archive_processing.rb'
 require_relative '../lib/processing/deploy_processing.rb'
 require_relative '../lib/processing/log_processing.rb'
 require_relative '../lib/processing/server_processing.rb'
 require_relative '../lib/processing/update_processing.rb'
-require_relative '../lib/processing/blacklist_manager.rb'
+require_relative '../lib/processing/blacklist_processing.rb'
 
 
 class Processing
@@ -38,14 +38,14 @@ class Processing
         if !@services['nodejs'] || !@services['mongodb']
             Server.server_start
         else
-            puts '[ Error ] server is already running.'.error
+            puts '[ ERROR ] - server is already running.'.error
         end
 
       when 'server_stop'
         if @services['nodejs'] || @services['mongodb']
           Server.server_stop
         else
-          puts '[ Error ] server is already stopped.'.error
+          puts '[ ERROR ] - server is already stopped.'.error
         end
 
       when 'server_restart'
@@ -135,7 +135,7 @@ class Processing
       #</editor-fold>
 
       else
-        puts "Error : unknown action : #{@operation}".error
+        puts "[ ERROR ] - unknown action : #{@operation}".error
     end
 
   end
