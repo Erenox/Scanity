@@ -40,7 +40,7 @@ class Initiative
     if services['mongodb'] && !services['nodejs']
 
       # require user approval
-      Approval.ask('mongod service running but server not, stop mongod service now ?')
+      Approval.ask('mongod service is running but it is not required anymore, stop it ?')
 
       # then stop mongo service
       Server.mongo_stop
