@@ -57,11 +57,11 @@ class Server
     puts '¤ check for secure server closing.'
     active_audits = Mongodb.get_active_audit
 
-    # check if an backups is running
+    # check if an audots is running
     if active_audits.any?
 
       # require user approval
-      Approval.ask('some backups process is currently running, abort and remove them ?')
+      Approval.ask('some audits process is running, abort and the audit ?')
 
       # then unsafe close processing
       puts "[ OK ] unsafe close processing. \n".valid
@@ -79,7 +79,7 @@ class Server
     # stop node.js service
     node_stop
 
-    #kill possible remaining backups processes
+    #kill possible remaining audits processes
     System.process_killer
 
   end
