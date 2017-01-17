@@ -61,7 +61,7 @@ class Server
     if active_audits.any?
 
       # require user approval
-      Approval.ask('some audits process is running, abort and the audit ?')
+      Approval.ask('some audits process is running, abort and remove the audit ?')
 
       # then unsafe close processing
       puts "[ OK ] unsafe close processing. \n".valid
