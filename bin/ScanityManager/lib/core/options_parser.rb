@@ -50,7 +50,7 @@ class OptionsParser
         return "server_#{action}" # return point
       end
 
-      opts.on('-u','--update ¤',[:server, :system_packages, :system_core], 'make the updates :', '¤ server', '¤ system_packages', '¤ system_core',"\n") do |action|
+      opts.on('-u','--update ¤',[:server, :system_packages, :system_core], 'manage the updates :', '¤ server', '¤ system_packages', '¤ system_core',"\n") do |action|
         return "update_#{action}" # return point
       end
 
