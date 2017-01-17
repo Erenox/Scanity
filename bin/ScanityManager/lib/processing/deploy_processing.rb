@@ -36,10 +36,10 @@ class Deploy
       end
 
       # create group of service administrators
-      System.exec('create the service administrators unix group.', 'sudo addgroup scanity_operators', 'scanity_operators group created.', 'failed to create scanity_operators group.')
+      System.exec('create the service admins unix group.', 'sudo addgroup scanity_operators', 'scanity_operators group created.', 'failed to create scanity_operators group.')
 
       # chown rights to scanity operators and service owners
-      System.exec('set directory owners.', "sudo chown -R #{service_owner}:scanity_operators #{@current_dir}/../../", 'directory owners are set.', 'failed to assign directory owners.')
+      System.exec('assign the service owners rights.', "sudo chown -R #{service_owner}:scanity_operators #{@current_dir}/../../", 'directory owners are set.', 'failed to assign directory owners.')
 
   end
   #</editor-fold>
@@ -52,13 +52,11 @@ class Deploy
   #</editor-fold>
 
   #<editor-fold desc="method : add_repositories">
-=begin
   def self.add_repositories
     # install mongodb repository key and create a repository file
-    System.exec('add mongodb repository key.','sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6','mongodb repository key installed.','failed to install mongodb repository key.')
+    # System.exec('add mongodb repository key.','sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6','mongodb repository key installed.','failed to install mongodb repository key.')
     System.exec('create source file for mongodb.','sudo echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list','mongodb repository file installed.','fail to install mongodb repository source file.')
   end
-=end
   #</editor-fold>
 
   #<editor-fold desc="method : npm_install_general_module(general_module)">
@@ -118,7 +116,7 @@ class Deploy
     set_permissions()
 
     # add missing repositories
-    # add_repositories() // disabled for now
+    add_repositories() // disabled for now
 
     # update the OS repository
     update()
