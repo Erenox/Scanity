@@ -49,8 +49,8 @@ if(fs.existsSync(settings.cert) && fs.existsSync(settings.key))
     // set the certificate
     var secure =
     {
-        cert: fs.readFile(settings.cert),
-        key: fs.readFile(settings.key)
+        cert: fs.readFileSync(settings.cert),
+        key: fs.readFileSync(settings.key)
     };
 
     // create secure HTTP server.
