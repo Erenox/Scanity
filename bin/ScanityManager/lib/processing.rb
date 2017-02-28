@@ -127,11 +127,11 @@ class Processing
       when 'log_server'
         Log.log_server
 
-      when 'log_remove_client'
-        Log.log_remove_client
+      when 'log_clear_client'
+        Log.log_clear_client
 
-      when 'log_remove_server'
-        Log.log_remove_server
+      when 'log_clear_server'
+        Log.log_clear_server
       #</editor-fold>
 
       else

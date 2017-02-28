@@ -10,6 +10,7 @@
 */
 var database_queries = require('../database_queries');
 
+//<editor-fold desc="function : archive_parser">
 var archive_parser = function(archive, timezone, custom)
 {
     if(archive)
@@ -34,8 +35,9 @@ var archive_parser = function(archive, timezone, custom)
 
     return archive;
 };
+//</editor-fold>
 
-
+//<editor-fold desc="module.exports.get_audit_archives">
 module.exports.get_audit_archives = function(input, timezone, callback)
 {
     if(!input) // default archive search
@@ -62,3 +64,4 @@ module.exports.get_audit_archives = function(input, timezone, callback)
         }
     }
 };
+//</editor-fold>

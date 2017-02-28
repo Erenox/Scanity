@@ -42,7 +42,9 @@ module.exports.check = function(client_ip, callback)
     }
 
 };
+//</editor-fold>
 
+//<editor-fold desc="function: client_manager">
 /*
 * add on ip container
 */

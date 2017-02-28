@@ -24,9 +24,9 @@ class Log
         system("cat #{log}")
         puts "\n"
         
-      elsif action == 'remove'
-        puts "[ OK ] - remove #{type} log.".valid
-        system("rm #{log}")
+      elsif action == 'clear'
+        puts "[ OK ] - clear #{type} log.".valid
+        system("echo '' > #{log}")
         
       else
         puts '[ Error ] - unknown action.'.error
@@ -54,16 +54,16 @@ class Log
   #</editor-fold>
 
   #<editor-fold desc="static method : log_remove_client">
-  def self.log_remove_client
-    puts '¤ remove client log file.'
-    log_manager('client','remove')
+  def self.log_clear_client
+    puts '¤ clear client log file.'
+    log_manager('client','clear')
   end
   #</editor-fold>
 
   #<editor-fold desc="static method : log_remove_server">
-  def self.log_remove_server
-    puts '¤ remove server log file.'
-    log_manager('server','remove')
+  def self.log_clear_server
+    puts '¤ clear server log file.'
+    log_manager('server','clear')
   end
   #</editor-fold>
 

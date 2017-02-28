@@ -157,7 +157,10 @@ module.exports.create = function(text_path, callback)
 
     stream.once('close', function()
     {
-        callback(); // done
+        fs.unlink(text_path, function()
+        {
+            callback(); // done
+        });
     });
 };
 //</editor-fold>

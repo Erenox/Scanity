@@ -10,7 +10,7 @@
 */
 const DOMAIN = /^([a-z0-9]([a-z0-9\-]{0,70}[a-z0-9])?\.)+[a-z]{2,6}$/;
 const HOST = /^([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])\.([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])\.([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])\.([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])$/;
-const DOMAIN_SELECTOR = /^[0-4]$/;
+const SELECTOR = /^[0-4]$/;
 
 //<editor-fold desc="module.exports.check">
 /*
@@ -28,7 +28,7 @@ module.exports.check = function(inputs, submits, settings, callback)
     }
     else
     {
-        if ( (inputs['domain'].match(DOMAIN) && inputs['selector'].match(DOMAIN_SELECTOR) || inputs['host'].match(HOST) && !inputs['selector'] ) && settings['terms'] === 'on')
+        if ( (inputs['domain'].match(DOMAIN) || inputs['host'].match(HOST) ) && inputs['selector'].match(SELECTOR) && settings['terms'] === 'on')
         {
             inputs['selector'] = parseInt(inputs['selector']);  // int casting
 

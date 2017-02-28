@@ -5,7 +5,6 @@
  * -Last update : 14/01/2017
  */
 
-
 /*
 * Modules
 */
@@ -31,19 +30,20 @@ Number.prototype.pad = function (len)
 var log_instance = function(date, log_type, callback)
 {
     // build log path
-    var audit_dir = path.resolve('../', 'logs').concat('/');
-    var audit_file = audit_dir.concat(log_type +  '.log');
+    var log_dir = path.resolve('../', 'logs').concat('/');
+    var log_file = log_dir.concat(log_type +  '.log');
 
     // check if file exit or create it
-    fs.exists(audit_file, function(exists)
+    fs.exists(log_file, function(exists)
     {
         if (!exists)
         {
-            fs.writeFile(audit_file, '', function(err) // create a new log file
+            //noinspection JSDeprecatedSymbols
+            fs.writeFile(log_file,'', function(err) // create a new log file
             {
                 if(!err)
                 {
-                    callback(audit_file); // callback file path
+                    callback(log_file); // callback file path
                 }
                 else
                 {
@@ -53,7 +53,7 @@ var log_instance = function(date, log_type, callback)
         }
         else // file already exist
         {
-            callback(audit_file); // callback file path
+            callback(log_file); // callback file path
         }
     });
 };
@@ -69,8 +69,8 @@ module.exports.write = function(log_type, text)
         if(log_path)
         {
             // text to dated log entry
-            text = String(date.getFullYear() + '-' + (date.getMonth()+1).pad(2) + '-' + date.getDate().pad(2) + '-' + date.getHours().pad(2) + ':' + date.getMinutes().pad(2) + ':' + date.getSeconds().pad(2)) + " - " + text + '\n';
-            fs.appendFile(log_path, text, function (err) {});
+            var data = String(date.getFullYear() + '-' + (date.getMonth()+1).pad(2) + '-' + date.getDate().pad(2) + '-' + date.getHours().pad(2) + ':' + date.getMinutes().pad(2) + ':' + date.getSeconds().pad(2)) + " - " + text + '\n';
+            fs.appendFile(log_path, data, function (err) {});
         }
     });
 };

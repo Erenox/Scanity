@@ -18,7 +18,7 @@ class Server
 
   #<editor-fold desc="static method : node_start">
   def self.node_start
-    System.exec('starting node.js service.',"cd #{@bin_dir} && sudo forever start --killSignal SIGKILL --minUptime 1000 --spinSleepTime 1000 -s -a -l /dev/null www",'node.js service is running.', 'failed to start node.js service.')
+    System.exec('starting node.js service.',"cd #{@bin_dir} && sudo forever start --killSignal SIGKILL --minUptime 1000 --spinSleepTime 1000 -s -a -l /dev/null -e #{@bin_dir}/../logs/server.log www",'node.js service is running.', 'failed to start node.js service.')
   end
   #</editor-fold>
 

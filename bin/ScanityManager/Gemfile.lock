@@ -4,8 +4,8 @@ GEM
     bson (4.2.1)
     etc (0.2.0)
     json (2.0.3)
-    mongo (2.3.0)
-      bson (~> 4.1)
+    mongo (2.4.1)
+      bson (>= 4.2.1, < 5.0.0)
 
 PLATFORMS
   ruby

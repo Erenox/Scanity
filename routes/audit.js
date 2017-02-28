@@ -83,6 +83,7 @@ router.post('/', function(req, res, next)
         ip: req.headers.host,    //- store briefly the client ipv4
         uid: null                //- store the client uid
     };
+
     var parameters = // an parameters container
     {
         display:null,       //- set audit display parameter

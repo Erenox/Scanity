@@ -37,13 +37,14 @@ section#main
             #type(class="aligned")
                 label Type :
                 select(id="select", name='input[selector]')
-                    option(value='0') Host audit
-                    option(value='1') Web audit
-                    option(value='2') CMS : Joomla
-                    option(value='3') CMS : Wordpress
-                    option(value='4') CMS : Drupal
-
-
+                    optgroup(label="Host")
+                        option(value='0') Host audit
+                    optgroup(label="Webserver")
+                        option(value='1') Web audit
+                    optgroup(label="CMS")
+                        option(value='2') Joomla
+                        option(value='3') Wordpress
+                        option(value='4') Drupal
             //- options fields
             #options
 
@@ -59,22 +60,17 @@ section#main
 
     //- specifications
     #specifications
-
-        .spec_tools(onmouseover="imghover('tools');", onmouseout="imgunhover('tools');" onclick="window.open('/audit/587a8bc59037af7e78d9ed95');")
-            img(id='tools', src='/images/*tools.png', alt='tools')
+        //- about tools
+        .specification(onmouseover="imghover('tool');", onmouseout="imgunhover('tool');" onclick="window.open('/audit/587a8bc59037af7e78d9ed95');")
+            img(id="tool", src='/images/*tools.png', alt='tool')
             h2 Audit tools
             img(id='code', src='/images/code.png', alt='code_background')
-            p(id='scanners', class="txt_orange") whatweb - sslyze - nmap - nikto - arachni - joomlavs - wpscan - droopescan
+            p(id='tools', class="txt_orange") whatweb - sslyze - nmap - nikto - arachni - joomlavs - wpscan - droopescan
             p(id='example', class="txt_orange") click here for view an audit example.
 
-        //- about update
-        .specification(onmouseover="imghover('update');", onmouseout="imgunhover('update');")
-            img(id='update', src='/images/*update.png', alt='update')
-            h2 Update
-            p All tools used in the audit process are updated at their latest version. Other tools can be added for improve the service.
-
-        //- about reports
-        .specification(onmouseover="imghover('report');", onmouseout="imgunhover('report');")
-            img(id='report', src='/images/*contact.png', alt='report')
-            h2 Report
-            p You want to complain about something ? Or just give me your opinions. Do not hesitate  i'm open to discuss. #[a(href='/contact/') Contact me]
+        //- about open-source
+        .specification(onmouseover="imghover('git');", onmouseout="imgunhover('git');")
+            img(id="git", src='/images/*git.png', alt='git')
+            h2 Open Source
+            p(id="open" class="txt_orange") To ensure your privacy protecting and give you the opportunity to participate, I have published the service source-code to github. Feel free to contribute, or report possible bugs.
+            a(href='https://github.com/Erenox/Scanity') https://github.com/Erenox/Scanity

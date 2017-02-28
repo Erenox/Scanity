@@ -75,11 +75,11 @@ function check_profile (selector, secure)
 */
 module.exports.check_server = function(type, inputs, callback)
 {
-    if(type === 'host')
+    if(inputs['selector'] === 0)
     {
         callback("host_profile");
     }
-    else if(type == "domain")
+    else
     {
         check_connection(inputs[type],80,HTTP_TIMEOUT).then(function()
         {
@@ -99,12 +99,6 @@ module.exports.check_server = function(type, inputs, callback)
             callback(null);
         })
     }
-    else
-    {
-        /* undefined profile type */
-        callback(null);
-    }
-
 };
 //</editor-fold>
 

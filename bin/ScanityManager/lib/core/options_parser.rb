@@ -62,7 +62,7 @@ class OptionsParser
         return "blacklist_#{action}" # return point
       end
 
-      opts.on('-l','--log ¤', [:client, :server, :remove_client, :remove_server], 'manage the logs :', '¤ client', '¤ server', '¤ remove_client', '¤ remove_server', "\n") do |action|
+      opts.on('-l','--log ¤', [:client, :server, :clear_client, :clear_server], 'manage the logs :', '¤ client', '¤ server', '¤ clear_client', '¤ clear_server', "\n") do |action|
         return "log_#{action}" # return point
       end
 

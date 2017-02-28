@@ -19,19 +19,15 @@ var host = /^([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])\.([1-9]?\d|1\d\d|2[0-4]\d|25[0-5]
 function manage_type(audit_type)
 {
     var type =  document.getElementById('type');
-    var selector = document.getElementById('select');
-
     type.style.display = 'table';
 
     if (audit_type === 'host')
     {
         type.getElementsByTagName('select')[0].selectedIndex = '0';
-        selector.disabled = true;
     }
     else if (audit_type === 'domain')
     {
         type.getElementsByTagName('select')[0].selectedIndex = '1';
-        selector.disabled = false;
     }
 }
 

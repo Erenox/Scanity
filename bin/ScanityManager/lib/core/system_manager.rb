@@ -8,7 +8,7 @@ require_relative './string_overwrite.rb'
 
 
 #CONST
-AUDIT_PROCESSES = %w(phantomjs arachni nikto whatweb sslyze nmap joomlavs wpscan droopescan )
+AUDIT_PROCESSES = %w(common phantomjs arachni nikto whatweb sslyze nmap joomlavs wpscan droopescan )
 
 class System
 
@@ -32,7 +32,7 @@ class System
     AUDIT_PROCESSES.each do |process|
 
       if system("sudo pgrep #{process} > /dev/null") # if process running
-          system("sudo killall -9 #{process} > /dev/null")
+          system("sudo pkill -f #{process} > /dev/null")
           puts "[ OK ] - process : #{process} killed.".valid
           killed_process += 1
       end

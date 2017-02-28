@@ -252,64 +252,41 @@ header {
   height: 220px;
   font-size: 0.938rem;
   text-align: justify; }
-
-.spec_tools {
-  width: 350px;
-  height: 90px;
-  margin-top: 5px; }
-  .spec_tools p {
-    text-align: center; }
-  .spec_tools h2 {
-    float: left;
-    height: 24px;
-    padding-top: 4px; }
-  .spec_tools #tools {
-    float: left;
-    margin-right: 5px; }
-  .spec_tools #scanners {
-    margin-top: -65px;
-    font-weight: bolder;
-    word-spacing: 5px; }
-  .spec_tools #example {
-    margin-top: -15px;
-    font-size: 0.8rem; }
-  .spec_tools #code {
+  #specifications .specification {
     width: 350px;
-    height: 85px;
-    margin: -22px 0 0;
-    opacity: 0.3;
-    filter: alpha(opacity=30); }
-
-.specification {
-  position: relative;
-  float: left;
-  clear: right;
-  width: 175px;
-  height: 90px;
-  margin-top: 4px; }
-  .specification * {
-    float: left; }
-  .specification p {
-    height: 75px;
-    margin-top: 0;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-bottom: 0;
-    font-size: 0.8rem;
-    line-height: 13px;
+    height: 90px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     overflow: hidden; }
-  .specification a {
-    float: none; }
-  .specification img {
-    width: 20px;
-    height: 20px;
-    margin-left: 16px;
-    margin-top: 2px;
-    margin-bottom: 2px; }
-  .specification h2 {
-    width: 100px;
-    margin: 2px 5px;
-    overflow: hidden; }
+    #specifications .specification p {
+      margin: 0; }
+    #specifications .specification h2 {
+      float: left;
+      width: 320px;
+      height: 24px;
+      padding-top: 4px; }
+    #specifications .specification #open {
+      font-size: 12px; }
+    #specifications .specification #git, #specifications .specification a {
+      font-size: 12px;
+      text-align: center; }
+    #specifications .specification #tool, #specifications .specification #git {
+      float: left;
+      margin-right: 5px; }
+    #specifications .specification #tools {
+      text-align: center;
+      margin-top: -65px;
+      font-weight: bolder;
+      word-spacing: 2px; }
+    #specifications .specification #example {
+      text-align: center;
+      font-size: 0.8rem; }
+    #specifications .specification #code {
+      width: 350px;
+      height: 85px;
+      margin: -22px 0 0;
+      opacity: 0.3;
+      filter: alpha(opacity=30); }
 
 #archives {
   float: right;
@@ -376,12 +353,12 @@ footer {
   position: static;
   display: inline-block;
   width: 880px;
-  height: 45px;
+  height: 40px;
   border-top: 2px solid rgba(255, 50, 0, 0.1);
   text-align: center; }
   footer h2 {
     text-align: center;
-    font-size: 0.688rem;
+    font-size: 0.5625rem;
     color: #505050; }
   footer a {
     display: inline-block;
@@ -400,8 +377,7 @@ footer {
   text-align: center; }
   #error h1, #error h2 {
     margin: 0;
-    color: white;
-    text-shadow: 2px 2px 4px white; }
+    color: white; }
   #error h1 {
     font-size: 5rem; }
   #error h2 {

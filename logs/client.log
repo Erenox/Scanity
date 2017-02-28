@@ -1,0 +1,32 @@
+
+2017-02-21-06:33:33 - [client] : 404 - Not Found
+2017-02-21-06:34:43 - [client] : 404 - Not Found
+2017-02-21-06:36:10 - [client] : 404 - Not Found
+2017-02-21-06:38:39 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-21-06:48:17 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-21-06:48:41 - [client] : leave an alert - A single audit per user and per hour is allowed!
+2017-02-21-06:49:39 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-21-06:57:35 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-25-13:31:01 - [client] : leave an alert - The form inputs are invalid!
+2017-02-25-13:32:30 - [client] : leave an alert - The form inputs are invalid!
+2017-02-25-13:35:24 - [client] : leave an alert - Wait a day before audit this target again!
+2017-02-25-13:42:13 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-13:42:31 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-13:42:49 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-25-13:47:21 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-13:47:33 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-13:48:52 - [client] : 422 - Unprocessable Entity
+2017-02-25-14:07:20 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-25-14:08:05 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-14:08:27 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-25-14:25:33 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-27-20:16:51 - [client] : 404 - Not Found
+2017-02-27-20:23:43 - [client] : leave an alert - A single audit per user and per hour is allowed!
+2017-02-27-20:24:09 - [client] : leave an alert - A single audit per user and per hour is allowed!
+2017-02-27-20:24:46 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-27-20:42:41 - [client] : 404 - Not Found
+2017-02-28-00:37:36 - [client] : 422 - Unprocessable Entity
+2017-02-28-04:49:15 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-28-04:49:32 - [client] : leave an alert - The specified target is offline or invalid!
+2017-02-28-05:19:47 - [client] : leave an alert - The submitted target is private or blacklisted!
+2017-02-28-05:20:07 - [client] : leave an alert - The specified target is offline or invalid!

@@ -4,7 +4,7 @@
     "common":
     {
       "bold" : "(-{3} [A-Z,a-z,0-9,\\-,.]{1,} -{3})",
-      "orange" : "(Registrant )|(Admin )|(Tech )|(person: )|(address: )|(phone: )|(e-mail: )|(Name Server: )|(Date: )|(\\(http\\))"
+      "orange" : "(Registrant )|(Admin )|(Tech )|(person: )|(Person: )|(address: )|(Address: )|(country: )|(Updated: )|(City: )(Updated: )|(phone: )|(fax-no: )|(e-mail: )|(Name Server: )|(netname: )|(Date: )|(\\(http\\))"
     },
 
     "whatweb":
