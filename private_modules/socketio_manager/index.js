@@ -1,8 +1,6 @@
 "use strict";
 /* socketio_manager private module
  * -Manage socket.io transactions
- * -Created by : Erenox the : 02/10/2016
- * -Last update : 14/01/2017
  */
 
 /*
@@ -25,7 +23,6 @@ exports.set_io_instance = function(io)
             archive_manager.get_audit_archives(parameters['input'], parameters['timezone'], function(audits)
             {
                 callback(audits);
-                
             });
         });
 

@@ -1,10 +1,9 @@
 "use strict";
 /* animation.js
  * Contain style animations
- * Created by : Erenox the : 09/07/2016
- * Last update : 14/01/2017
  */
 
+const version = 'v2.3.0 (04/03/2017)';
 var before_loading; // get the current time
 
 /*
@@ -185,7 +184,7 @@ function stopwatch()
 
     var sec = ((new Date()).getTime() - before_loading)/1000;
     
-    timer.innerHTML = "Page loaded in : " + sec + " seconds.";
+    timer.innerHTML = "ɔ Scanity "+ version + " - Page loaded in : " + sec + " seconds.";
     document.getElementsByTagName('footer')[0].insertAdjacentHTML('beforeend', timer.outerHTML)
 }
 
@@ -208,7 +207,7 @@ function archive_update(archive)
         {
             // fill cells with data
             cells[0].innerHTML = date_formatting(archive[cpt]['date'], true);
-            cells[1].innerHTML = "<a href='audit/" + archive[cpt]["_id"] + "'>" + archive[cpt]["target_main"] + "</a>";
+            cells[1].innerHTML = "<a href='audit/" + archive[cpt]["_id"] + "'>" + archive[cpt]["main_target"] + "</a>";
         }
         else // no more data to set
         {

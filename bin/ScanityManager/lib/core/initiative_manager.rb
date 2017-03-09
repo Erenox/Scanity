@@ -1,7 +1,5 @@
 # ./lib/core/initiative_manager.rb
 # Ask user about some action during processing
-# Created by : Erenox the : 02/12/2016
-# Last update : 02/12/2016
 
 # private core gems
 require_relative '../core/approval_manager'

@@ -1,8 +1,5 @@
 # ./lib/gems_manager.rb
 # installing missing public gems
-# Created by : Erenox the : 27/10/2016
-# Last update : 1/11/2016
-
 # private core gems
 require_relative './system_manager.rb'
 

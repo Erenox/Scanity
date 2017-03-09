@@ -1,8 +1,5 @@
 # ./lib/mongo_manager.rb
 # Do database operations on mongodb
-# Created by : Erenox the : 29/10/2016
-# Last update : 29/10/2016
-
 # private core gems
 require_relative '../core/gems_manager.rb'
 
@@ -52,10 +49,10 @@ class Mongodb
 
     active_audits = %w()
 
-    db['results'].find.each do |result|
-      result['scanners'].each do |scanner|
-        if scanner['status'] == 0
-          active_audits << db['audits'].find(result_id: BSON::ObjectId(result['_id'])).first
+    db['audits'].find.each do |audit|
+      audit['results'].each do |result|
+        if result['status'] == 0
+          active_audits << db['audits'].find(_id: BSON::ObjectId(audit['_id'])).first
           break
         end
       end
@@ -68,42 +65,29 @@ class Mongodb
   end
   #</editor-fold>
 
-  #<editor-fold desc="method : get_audit_keys">
-  def self.get_audit_keys(id)
-
-    db = db_open # open a database instance
-    audit = db['audits'].find(_id: id).first # get an backups by id
-    db_close(db) # close the database instance
-
-    if audit
-      # get collection _id and foreign keys
-      keys = {'_id' => audit['_id'], 'target_id' => audit['target_id'], 'result_id' => audit['result_id']}
-
-      # return backups keys
-      return keys
-
-    else
-      # return null
-      return nil
-    end
-  end
-  #</editor-fold>
-
-  #<editor-fold desc="method : remove_audit(keys)">
-  def self.remove_audit(keys)
+  #<editor-fold desc="method : check_audit(keys)">
+  def self.check_audit(audit_id)
 
     db = db_open # open a database instance
 
     # remove collection audits by _id
-    db['audits'].find('_id': BSON::ObjectId(keys['_id'])).delete_one
-
-    # remove collection targets by _id
-    db['targets'].find('_id': BSON::ObjectId(keys['target_id'])).delete_one
-
-    # remove collection results by _id
-    db['results'].find('_id': BSON::ObjectId(keys['result_id'])).delete_one
+    return db['audits'].find('_id': BSON::ObjectId(audit_id))
 
     db_close(db) # close the database instance
+
+  end
+  #</editor-fold>
+
+  #<editor-fold desc="method : remove_audit(keys)">
+  def self.remove_audit(audit_id)
+
+    db = db_open # open a database instance
+
+    # remove collection audits by _id
+    db['audits'].find('_id': BSON::ObjectId(audit_id)).delete_one
+
+    db_close(db) # close the database instance
+
   end
   #</editor-fold>
 
@@ -115,16 +99,11 @@ class Mongodb
     # remove audits collection
     db['audits'].drop
 
-    # remove targets collection
-    db['targets'].drop
-
-    # remove results collection
-    db['results'].drop
-
     db_close(db) # close the database instance
 
   end
   #</editor-fold>
+
   #</editor-fold>
 
 end

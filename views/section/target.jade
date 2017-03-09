@@ -7,28 +7,27 @@ section#target(onmouseover="imghover('target_icon');", onmouseout="imgunhover('t
 
     img(id='target_icon' src='/images/*target.png', alt='icon')
     h1 Target
-    img(src='/images/flags32/#{target.country_code}.png', onerror="this.src='/images/flags32/default.png';" alt='flag')
+    img(src='/images/flags32/#{audit.country_code}.png', onerror="this.src='/images/flags32/default.png';" alt='flag')
     br
 
-    if (target.host)
+    if (audit['target'].host)
         label(class='field') IP :
-        a(class='value' href='http://#{target.host}', target='_blank') #{target.host}
+        a(class='value' href='http://' + audit['target'].host, target='_blank') #{audit['target'].host}
 
-    if (target.domain)
+    if (audit['target'].domain)
         label(class='field') Domain :
-        a(class='value' href='http://#{target.domain}', target='_blank')  #{target.domain}
+        a(class='value' href='http://' + audit['target'].domain, target='_blank')  #{audit['target'].domain}
 
     label(class='field') Location :
 
-    if (target.location !== 'unknown')
-        a(class='value' href='http://google.com/maps/place/#{target.location}', target='_blank') #{target.location}
+    if (audit['target'].location !== 'unknown')
+        a(class='value' href='http://google.com/maps/place/' + audit['target'].location, target='_blank') #{audit['target'].location}
     else
-        label(class='value') #{target.location}
+        label(class='value') unknown
 
     label(class='field') Begin on :
     label(class='value')
-        script document.write(date_formatting(!{JSON.stringify(target.date)}, false));
+        script document.write(date_formatting(!{JSON.stringify(audit.date)}, false));
 
     label(class='field') User uid :
-    label(class='value') #{target.user_uid}
-
+    label(class='value') #{audit.user_uid}

@@ -1,8 +1,6 @@
 "use strict";
 /* geo-ip private module
  * -Get localisation using 'ip-api.com' service
- * -Created by : Erenox the : 22/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

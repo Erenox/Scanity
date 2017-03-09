@@ -1,7 +1,5 @@
 # ./lib/system_manager.rb
 # Normalise the system exec output
-# Created by : Erenox the : 29/10/2016
-# Last update : 31/10/2016
 
 # private core gems
 require_relative './string_overwrite.rb'
@@ -14,7 +12,7 @@ class System
 
   def self.exec(action, command ,str_out, str_err)
     puts "¤ #{action}"
-    system("#{command}   > /dev/null 2>&1")
+    system("#{command} > /dev/null 2>&1")
 
     if $? == 0
       puts ("[ OK ] - #{str_out}\n").valid

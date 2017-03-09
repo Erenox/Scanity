@@ -1,8 +1,6 @@
 "use strict";
 /* report_manager private module
  * -Convert a report to html format
- * -Created by : Erenox the : 02/10/2016
- * -Last update : 14/01/2017
  */
 
 /*

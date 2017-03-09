@@ -2,8 +2,6 @@
 /* settings.js
  * For store some security settings
  * must be reset by server owner
- * Created by : Erenox the : 13/01/2017
- * Last update : 14/01/2017
  */
 
 /*

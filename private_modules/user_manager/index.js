@@ -1,8 +1,6 @@
 "use strict";
 /* user_uid private module
  * -Create client uid using client's ip
- * -Created by : Erenox the : 23/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

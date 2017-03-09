@@ -1,7 +1,5 @@
 # ./lib/banner_display.rb
 # Contains manager banners
-# Created by : Erenox the : 27/10/2016
-# Last update : 1/11/2016
 
 # private core gems
 require_relative './string_overwrite.rb'
@@ -13,7 +11,7 @@ class Banner
   #<editor-fold desc="class constructor : initialize">
   # class constructor
   attr_accessor :type, :version, :codename, :reset # : optional parameters
-  def initialize(type = 'shadow', version = '2.1.0', codename = 'Jackson (Beta)', reset = true)
+  def initialize(type = 'shadow', version = '2.2.0', codename = 'Akkerman', reset = true)
     @reset = reset
     @type = type
     @version = version
@@ -22,6 +20,7 @@ class Banner
       # (20/12/2015) version : 1.x.x codename : Murdock
       # (31/11/2016) version : 2.0.0 codename : Perens
       # (23/12/2016) version : 2.1.0 codename : Jackson
+      # (04/03/2017) version : 2.2.0 codename : Akkerman
     # Debian project leaders : https://fr.wikipedia.org/wiki/Debian#Chefs_du_projet_Debian_.28Debian_project_leaders.29
 
     # get services status

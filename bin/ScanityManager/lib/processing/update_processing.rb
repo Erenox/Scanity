@@ -1,7 +1,5 @@
 # ./lib/processing/server.rb
 # Processing the updates
-# Created by : Erenox the : 02/12/2016
-# Last update : 02/12/2016
 
 class Update
 

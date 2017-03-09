@@ -1,8 +1,6 @@
 "use strict";
 /* app.js
  * Contain server core engine
- * Created by : Webstorm the : 01/07/2016
- * Last update : 14/01/2017
  */
 
 /*

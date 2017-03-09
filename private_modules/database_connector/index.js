@@ -1,8 +1,6 @@
 "use strict";
 /* database_connector private module
 * -Contain Mongodb connection pool
-* -Created by : Erenox the : 06/07/2016
-* -Last update : 14/01/2017
 */
 
 /*

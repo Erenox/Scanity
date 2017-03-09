@@ -1,8 +1,5 @@
 # ./lib/processing/log_processing.rb
 # processing logs management
-# Created by : Erenox the : 02/12/2016
-# Last update : 02/12/2016
-
 
 # private core gems
 require_relative('../core/string_overwrite.rb')

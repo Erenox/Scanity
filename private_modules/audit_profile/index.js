@@ -1,8 +1,6 @@
 "use strict";
 /* audit_profile private module
  * -Define audit type using some tests
- * -Created by : Erenox the : 21/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

@@ -1,8 +1,6 @@
 "use strict";
 /* check_inputs private module
  * -Check all inputs passed by client
- * -Created by : Erenox the : 06/07/2016
- * -Last update : 17/12/2016
  */
 
 /*
@@ -57,11 +55,11 @@ module.exports.display = function(settings, callback)
 {
     if(settings['archive'] === 'on') // public
     {
-        callback(false);
+        callback(true);
     }
     else // hidden
     {
-        callback(true);
+        callback(false);
     }
 };
 //</editor-fold>

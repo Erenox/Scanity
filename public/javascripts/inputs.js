@@ -1,8 +1,6 @@
 "use strict";
 /* inputs.js
  * Contain inputs & client side rendering
- * Created by : Erenox the : 10/07/2016
- * Last update : 14/01/2011
  */
 
 /* regex for client part validation */

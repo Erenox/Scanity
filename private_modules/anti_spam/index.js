@@ -1,8 +1,6 @@
 "use strict";
 /* anti_spam private module
  * -Security module, prevent spam, restrict service misuse.
- * -Created by : Erenox the : 07/10/2016
- * -Last update : 17/12/2016
  */
 
 /*
@@ -73,21 +71,11 @@ function client_manager(client_ip, reset)
 /*
 * restrict audit by user (one audit per hour per uid)
 */
-module.exports.check_user_interval = function(uid, callback)
+module.exports.check_user_interval = function(user_uid, callback)
 {
-    database_queries.get_user_by_uid(uid, function(user)
+    database_queries.check_audit_user_interval(user_uid, AUDIT_INTERVAL, function (result)
     {
-        if (!user)
-        {
-            callback(true);
-        }
-        else
-        {
-            database_queries.get_audit_by_interval_and_user_id(new ObjectID(user._id), AUDIT_INTERVAL, function (result)
-            {
-                callback(!result);
-            });
-        }
+        callback(!result);
     });
 };
 //</editor-fold>
@@ -98,7 +86,7 @@ module.exports.check_user_interval = function(uid, callback)
  */
 module.exports.check_target_interval = function(target_main, callback)
 {
-    database_queries.count_audit_by_interval_and_target_main(target_main, TARGET_INTERVAL, function(result)
+    database_queries.check_audit_target_interval(target_main, TARGET_INTERVAL, function(result)
     {
         callback(result);
     });

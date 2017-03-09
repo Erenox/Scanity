@@ -1,8 +1,6 @@
 "use strict";
 /* check_blacklist private module
  * -Check all blacklisted hosts and domains
- * -Created by : Erenox the : 19/07/2016
- * -Last update : 14/01/2017
  */
 
 /*

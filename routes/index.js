@@ -1,8 +1,6 @@
 "use strict";
 /* index.js
 * Contain routes for main '/' page
-* Created by : Erenox the : 01/07/2016
-* Last update : 14/01/2017
 */
 
 /*

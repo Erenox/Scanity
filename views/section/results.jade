@@ -1,35 +1,35 @@
 //- results.jade
     -Contains the scanners results
-    -Created by : Erenox the : 06/07/2016
-    -Last update : 08/07/2016
+
 section#results
         - var count = 0
-        each item in target.result.scanners
+        each result in audit.results
+
             .result
                 //- result header
-                .scan_header(id='#{item.name}_header')
-                    img(src='/images/#{item.name}.png', alt='icon')
-                    h2 #{item.name}
+                .scan_header(id='#{result.tool}_header')
+                    img(src='/images/#{result.tool}.png', alt='icon')
+                    h2 #{result.tool}
                     label
-                        script get_description(!{JSON.stringify(item.name)});
+                        script get_description(!{JSON.stringify(result.tool)});
 
-                    if item.status === 0
+                    if result.status === 0
                         img(name='progress', src='/images/animated/*progress.gif', alt='progress')
-                        button(style="background: transparent url(/images/*display.png) no-repeat; cursor: progress", onclick="visibility(this,'#{item.name}_body');", disabled=true)
+                        button(style="background: transparent url(/images/*display.png) no-repeat; cursor: progress", onclick="visibility(this,'#{result.tool}_body');", disabled=true)
 
                     else
                         img(name='progress', src='/images/animated/_progress.gif', alt='progress')
-                        button(style="background: transparent url(/images/animated/_display.gif) no-repeat; cursor: pointer",  onclick="visibility(this,'#{item.name}_body');", disabled=false)
+                        button(style="background: transparent url(/images/animated/_display.gif) no-repeat; cursor: pointer",  onclick="visibility(this,'#{result.tool}_body');", disabled=false)
 
                 //- result body
-                .scan_body(id='#{item.name}_body')
-                    if item.status === 1
-                        object(data='../../audits/#{id}/#{item.name}.html', type='text/html')
+                .scan_body(id='#{result.tool}_body')
+                    if result.status === 1
+                        object(data='../../audits/#{id}/#{result.tool}.html', type='text/html')
                         - count++
                     else
                         object(data='' type='text/html')
 
-        script set_audit_title(!{JSON.stringify(count)}, !{JSON.stringify(target.result.scanners.length)});
+        script set_audit_title(!{JSON.stringify(count)}, !{JSON.stringify(audit.results.length)});
 
-        if(count != target.result.scanners.length)
+        if(count != audit.results.length)
             script audit_standby(!{JSON.stringify(id)});

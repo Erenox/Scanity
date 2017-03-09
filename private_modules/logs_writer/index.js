@@ -1,8 +1,6 @@
 "use strict";
 /* logs_writer private module
  * -Log client and server error on logs directory
- * -Created by : Erenox the : 18/10/2016
- * -Last update : 14/01/2017
  */
 
 /*

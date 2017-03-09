@@ -1,7 +1,5 @@
 # server_manager.rb
 # The Scanity server manager panel.
-# Created by : Erenox the : 28/10/2016
-# Last update : 31/10/2016
 
 # private core gems
 require_relative './lib/core/options_parser'

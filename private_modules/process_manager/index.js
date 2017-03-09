@@ -1,8 +1,6 @@
 "use strict";
 /* process_manager private module
  * -Manage audit processes
- * -Created by : Erenox the : 12/10/2016
- * -Last update : 14/01/2017
  */
 
 /*
@@ -25,19 +23,19 @@ var log_writer = require('../logs_writer');
 /*
 * CONST
 */
-const TIMEOUT = 4 * 3600 * 1000;
+const TIMEOUT = 5 * 3600 * 1000;
 
-//<editor-fold desc="function : get_scanner_command">
+//<editor-fold desc="function : get_tool_command">
 /*
-* build the command associated to scanner
+* build the command associated to tool
 */
-function get_scanner_command(scanner, main_target)
+function get_tool_command(tool, main_target)
 {
     // remove console color
     var uncolorize = ' | sed "s,\\x1B\\[[0-9;]*[a-zA-Z],,g" ';
 
-    //return a scanner command
-    switch(scanner)
+    //return a tool command
+    switch(tool)
     {
         case 'common':
             return "common " + main_target;
@@ -56,7 +54,7 @@ function get_scanner_command(scanner, main_target)
             break;
 
         case 'arachni':
-            return "arachni --profile-load-filepath /usr/share/arachni/profiles/profile --scope-include-subdomains --output-only-positives --timeout 3:45 http://" + main_target;
+            return "arachni --profile-load-filepath /usr/share/arachni/profiles/profile --output-only-positives --scope-auto-redundant 8 --scope-page-limit 1250 --timeout 4:45 http://" + main_target;
             break;
 
         case 'sslyze':
@@ -82,7 +80,7 @@ function get_scanner_command(scanner, main_target)
 /*
 * create a new child process
 */
-function process_spawn(audit_id, command, scanner, report_path)
+function process_spawn(audit_id, command, tool, report_path)
 {
     // run the process, append on file (timeout : 4 hours)
     instance_manager.add_instance();// process start : add and instance
@@ -112,7 +110,7 @@ function process_spawn(audit_id, command, scanner, report_path)
             // create the html report, update the database and notify the client
             report_manager.create(report_path, function()
             {
-                update_result(audit_id, scanner); // update the database
+                update_result(audit_id, tool); // update the database
             });
         });
     });
@@ -126,7 +124,7 @@ function process_spawn(audit_id, command, scanner, report_path)
 function process_close(process)
 {
     process.kill('SIGTERM'); // close possible remain process properly (in case of timeout)
-    instance_manager.remove_instance();// process stop : remove an instance
+    instance_manager.remove_instance(); // process stop : remove an instance
 }
 //</editor-fold>
 
@@ -134,25 +132,21 @@ function process_close(process)
 /*
 * update result status on database
 */
-function update_result(audit_id, scanner)
+function update_result(audit_id, tool)
 {
-    database_queries.get_result_id_by_audit_id(audit_id, function(result_id)
-    {
-        // update result for current audit in database
-        database_queries.update_result_by_id(result_id, scanner, 1);
-    });
+    // update result for current audit in database
+    database_queries.update_results(audit_id, tool);
 
     try
     {
-        // notify the client
-        socketio_manager.result_notify(audit_id, scanner);
+        // notify the user
+        socketio_manager.result_notify(audit_id, tool);
     }
     catch(err)
     {
-        // not fatal error, client just disconnect in bad way
-        log_writer.write("server",err);
+        // not fatal error, user just disconnect in bad way
+        log_writer.write("server", err);
     }
-
 }
 //</editor-fold>
 
@@ -188,16 +182,15 @@ module.exports.start = function(audit_id, target_main, profile)
     var start_processes = function()
     {
         // get the audit profile
-        audit_profile.get_profile(profile, function (scanners)
+        audit_profile.get_profile(profile, function (tools)
         {
-
-            scanners.forEach(function(scanner)
+            tools.forEach(function(tool)
             {
-                var command = get_scanner_command(scanner, target_main);
-                var report_path = path.format({root: audit_dir, name: scanner, ext: '.txt'});
+                var command = get_tool_command(tool, target_main);
+                var report_path = path.format({root: audit_dir, name: tool, ext: '.txt'});
 
                 // spawn a new process
-                process_spawn(audit_id, command, scanner, report_path);
+                process_spawn(audit_id, command, tool, report_path);
             });
         });
     };

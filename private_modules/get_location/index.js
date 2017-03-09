@@ -1,8 +1,6 @@
 "use strict";
 /* get_localisation private module
  * -Localise the target via REST api using ip/domain
- * -Created by : Erenox the : 22/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

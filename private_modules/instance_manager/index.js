@@ -1,8 +1,6 @@
 "use strict";
 /* instance_manager private module
  * -Check current audit instances
- * -Created by : Erenox the : 19/07/2016
- * -Last update : 14/01/2017
  */
 
 /*
@@ -36,7 +34,6 @@ module.exports.check = function(callback) // limit scanners instances (Protect s
 module.exports.add_instance = function()
 {
     current_instances+=1;
-    console.log(current_instances);
 };
 //</editor-fold>
 
@@ -47,6 +44,5 @@ module.exports.add_instance = function()
 module.exports.remove_instance = function()
 {
     current_instances-=1;
-    console.log(current_instances);
 };
 //</editor-fold>

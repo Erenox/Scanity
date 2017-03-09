@@ -1,8 +1,5 @@
 # ./lib/processing/blacklist_processing.rb
 # processing archive operations
-# Created by : Erenox the : 14/01/2017
-# Last update : 14/01/2017
-
 
 # gems
 require 'json'

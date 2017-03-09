@@ -1,8 +1,5 @@
 # ./lib/services_manager.rb
 # Manage services (node.js, mongodb, ...)
-# Created by : Erenox the : 28/10/2016
-# Last update : 28/10/2016
-
 
 class Services
 
@@ -11,13 +8,13 @@ class Services
 
   #<editor-fold desc="method : update_status">
   def self.update_status
-    if system("ps -aux | pgrep 'mongod' > /dev/null ")
+    if system("sudo ps -aux | pgrep 'mongod' > /dev/null ")
         @services['mongodb'] = true
       else
         @services['mongodb'] = false
       end
 
-      if system("ps -aux | pgrep 'node' > /dev/null ")
+      if system("sudo ps -aux | pgrep 'node' > /dev/null ")
         @services['nodejs'] = true
       else
         @services['nodejs'] = false

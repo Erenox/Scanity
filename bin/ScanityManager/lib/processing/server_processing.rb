@@ -1,7 +1,5 @@
 # ./lib/processing/server_processing.rb
 # Processing server operations
-# Created by : Erenox the : 28/10/2016
-# Last update : 02/12/2016
 
 # private core gems
 require_relative '../core/string_overwrite.rb'

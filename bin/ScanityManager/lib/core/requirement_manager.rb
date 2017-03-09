@@ -1,7 +1,5 @@
 # ./lib/core/requirement_manager.rb
 # Manage requirements for processing
-# Created by : Erenox the : 02/12/2016
-# Last update : 02/12/2016
 
 # private core gems
 require_relative '../core/approval_manager'

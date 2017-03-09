@@ -1,7 +1,5 @@
 # ./lib/approval_manager.rb
 # Ask user for important things
-# Created by : Erenox the : 27/10/2016
-# Last update : 20/12/2016
 
 # private gems
 require_relative('./string_overwrite.rb')

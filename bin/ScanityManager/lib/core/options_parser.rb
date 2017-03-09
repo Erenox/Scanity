@@ -1,7 +1,5 @@
 # ./lib/options_parser.rb
 # Display menu and parse inputs
-# Created by : Erenox the : 27/10/2016
-# Last update : 28/10/2016
 
 # private gems
 require_relative './banner_display.rb'

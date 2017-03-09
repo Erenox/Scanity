@@ -1,8 +1,6 @@
 "use strict";
 /* dns_resolver private module
  * -Domain lookup or ip reverse
- * -Created by : Erenox the : 21/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

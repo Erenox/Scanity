@@ -1,8 +1,6 @@
 "use strict";
 /* private_message private module
  * -Manage private message send by user
- * -Created by : Erenox the : 28/08/2016
- * -Last update : 14/01/2017
  */
 
 /*

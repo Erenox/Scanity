@@ -1,7 +1,5 @@
 # ./lib/string_overwrite.rb
 # Overwrite the standard String class
-# Created by : Erenox the : 28/10/2016
-# Last update : 28/10/2016
 
 #(overwriting String class)Thanks to Ivan Black
 class String

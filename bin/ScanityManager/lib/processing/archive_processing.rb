@@ -1,7 +1,5 @@
 # ./lib/processing/archive_processing.rb
 # processing archive operations
-# Created by : Erenox the : 02/12/2016
-# Last update : 02/12/2016
 
 # private core gems
 require_relative '../core/mongo_manager.rb'
@@ -24,10 +22,11 @@ class Archive
 
     audits.each do |audit|
 
-      puts "  id : #{audit['_id']}"
-      puts "  target : #{audit['target_main']}"
-      puts "  date : #{audit['date']}"
-      puts "  private : #{audit['private']}\n\n"
+      puts " id       : #{audit['_id']}"
+      puts " target   : #{audit['main_target']}"
+      puts " date     : #{audit['date']}"
+      puts " display  : #{audit['display']}"
+      puts " user_uid : #{audit['user_uid']}\n\n"
 
     end
 
@@ -51,20 +50,17 @@ class Archive
       exit(1)
     end
 
-    # get audit foreign keys
-    keys = Mongodb.get_audit_keys(audit_id)
-
-    if keys # keys is valid
+    if Mongodb.check_audit(audit_id) # audit is valid
 
       # remove audits reference in collection
       puts "\n¤ remove audit : #{audit_id} in database collection."
-      Mongodb.remove_audit(keys)
+      Mongodb.remove_audit(audit_id)
       puts "[ OK ] - audit references removed from database. \n".valid
 
       # remove audits results in filesystem
       System.exec("remove audit : #{audit_id} results in filesystem.","sudo rm -rf #{@bin_dir}/../public/audits/#{audit_id}", 'audit results removed.','impossible to remove audit results.')
 
-    else# key is invalid
+    else# audit_id is invalid
 
       puts "[ Error ] - invalid audit id. \n".error
 

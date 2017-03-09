@@ -1,8 +1,6 @@
 "use strict";
 /* audit.js
  * Contain routes for main '/audit' page
- * Created by : Erenox the : 06/07/2016
- * Last update : 14/01/2017
  */
 
 /*
@@ -16,18 +14,18 @@ var objectID = require('mongodb').ObjectID;
 /*
 * Privates modules
 */
-var user_manager = require('../private_modules/user_manager');
-var check_inputs = require('../private_modules/check_inputs');
-var instance_manager = require('../private_modules/instance_manager');
-var check_blacklist = require('../private_modules/check_blacklist');
-var audit_profile = require('../private_modules/audit_profile');
-var dns_resolver = require('../private_modules/dns_resolver');
-var get_location = require('../private_modules/get_location');
-var audit_manager = require('../private_modules/audit_manager');
-var anti_spam = require('../private_modules/anti_spam');
-var socketio_manager = require('../private_modules/socketio_manager');
-var process_manager = require('../private_modules/process_manager');
-var logs_writer = require('../private_modules/logs_writer');
+var user_manager        = require('../private_modules/user_manager');
+var check_inputs        = require('../private_modules/check_inputs');
+var instance_manager    = require('../private_modules/instance_manager');
+var check_blacklist     = require('../private_modules/check_blacklist');
+var audit_profile       = require('../private_modules/audit_profile');
+var dns_resolver        = require('../private_modules/dns_resolver');
+var get_location        = require('../private_modules/get_location');
+var audit_manager       = require('../private_modules/audit_manager');
+var anti_spam           = require('../private_modules/anti_spam');
+var socketio_manager    = require('../private_modules/socketio_manager');
+var process_manager     = require('../private_modules/process_manager');
+var logs_writer         = require('../private_modules/logs_writer');
 
 //<editor-fold desc="function  : custom_error">
 /*
@@ -47,7 +45,7 @@ router.get('/:id', function(req, res, next)
 
     if(objectID.isValid(audit_id))
     {
-       audit_manager.get_audit_data_header(audit_id, function(err, target)
+       audit_manager.get_audit_data(audit_id, function(err, audit)
        {
            if (err) // on error
            {
@@ -55,7 +53,7 @@ router.get('/:id', function(req, res, next)
            }
            else
            {
-               res.render('audit', {'target': target, 'id': audit_id});
+               res.render('audit', {'id': audit_id, 'audit': audit});
                res.end();
            }
        });
@@ -74,22 +72,22 @@ router.get('/:id', function(req, res, next)
 router.post('/', function(req, res, next)
 {
     //<editor-fold desc="get parameters and define containers">
-    const inputs = req.body.input;
-    const submits = req.body.submit;
-    const settings = req.body.setting;
+    const inputs    = req.body.input;
+    const submits   = req.body.submit;
+    const settings  = req.body.setting;
 
-    var client = // an  client data container
+    var user = // an user data container
     {
-        ip: req.headers.host,    //- store briefly the client ipv4
-        uid: null                //- store the client uid
+        ip  : req.headers.host,    //- store briefly the user ipv4
+        uid : null                 //- store the user uid
     };
 
     var parameters = // an parameters container
     {
-        display:null,       //- set audit display parameter
-        type:null,          //- set the audit type parameter
-        profile:null,       //- set the audit profile
-        location:null       //- define the target location
+        display     :   null,       //- set audit display parameter
+        type        :   null,       //- set the audit type parameter
+        profile     :   null,       //- set the audit profile
+        location    :   null        //- define the target location
     };
     //</editor-fold>
 
@@ -99,7 +97,7 @@ router.post('/', function(req, res, next)
         x0: function (callback)
         {
             // prevent audit form spam
-            anti_spam.check(client.ip, function (allow)
+            anti_spam.check(user.ip, function (allow)
             {
                 if (allow) // OK
                 {
@@ -143,14 +141,14 @@ router.post('/', function(req, res, next)
         {
             async.parallel({
 
-                //<editor-fold desc="async : generate client unique id.">
+                //<editor-fold desc="async : generate user unique id.">
                 x2_1: function (callback)
                 {
-                    // generate an client uid based on ip
-                    user_manager.generate_uid(client.ip, function (result)
+                    // generate an user uid based on ip
+                    user_manager.generate_uid(user.ip, function (result)
                     {
-                        delete client.ip; // no need client ip anymore
-                        client.uid = result;
+                        delete user.ip; // no need user ip anymore
+                        user.uid = result;
                         
                         callback(null); // --> error : null
                     });
@@ -160,7 +158,7 @@ router.post('/', function(req, res, next)
                 //<editor-fold desc="async : disallow user audit in shorter interval.">
                 x2_2: function (callback)
                 {
-                    anti_spam.check_user_interval(client.uid, function (result)
+                    anti_spam.check_user_interval(user.uid, function (result)
                     {
                         if (result)
                         {
@@ -307,7 +305,7 @@ router.post('/', function(req, res, next)
         else // ok
         {
             //process
-            audit_manager.new_audit(client, inputs, parameters, function (audit_id)
+            audit_manager.new_audit(user, inputs, parameters, function (audit_id)
             {
                 if(audit_id)
                 {
